@@ -1,0 +1,16 @@
+Checklist:
+    
+    - User
+        - Set up route for User Registration with password hashing
+        - Set up route for User Login with JWT authorization 
+        - Set up User Models for User
+        x Will need to find a way to capture user images
+    
+    - Item
+        - Set up Model for Item successfully
+        - Set up route for getting User's all items
+        - Set up route for creating a new Item
+        - Made an Item goal calculator
+    
+    - Transaction
+        - Set up model for Transactions
