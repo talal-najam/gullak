@@ -7,10 +7,10 @@ const config = require('config');
 const secretOrKey = config.get('secretOrKey');
 const passport = require('passport');
 
+
 // @route 	GET api/users/register
 // @desc  	Register a new user
 // @access 	Public
-// @Notes   Still needs bcrypt and error handling
 router.post('/register', async (req, res) => {
 
     // Check database if User already exists
@@ -47,7 +47,6 @@ router.post('/register', async (req, res) => {
 // @route 	GET api/users/login
 // @desc  	Login User / Returning JWT Token
 // @access 	Public
-// @Notes   Still need error handling
 router.post('/login', (req, res) => {
 
     const { email, password } = req.body;
