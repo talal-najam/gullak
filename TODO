@@ -5,6 +5,7 @@ Checklist:
         - Set up route for User Login with JWT authorization 
         - Set up User Models for User
         x Will need to find a way to capture user images
+        - Add income/salary
     
     - Item
         - Set up Model for Item successfully
