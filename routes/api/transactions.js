@@ -4,15 +4,17 @@ const Item = require('../../models/Item');
 const passport = require('passport');
 const Transaction = require('../../models/Transaction');
 
+
 // GET      /api/transactions/mytransactions
 // DESC     Get all of current user's transactions
 // ACCESS   Private
-router.get('/mytransactions', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get('/transactions', passport.authenticate('jwt', { session: false }), (req, res) => {
     Transaction.find({ user: req.user.id })
         .sort({ date: -1 })
         .then(transactions => res.json(transactions))
         .catch(err => res.status(401).json(err))
 })
+
 
 // POST     /api/transactions
 // DESC     Create a new transaction
@@ -41,7 +43,5 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
             }
         })
 });
-
-
 
 module.exports = router;

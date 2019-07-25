@@ -20,6 +20,7 @@ require('./config/passport')(passport);
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/items', require('./routes/api/items'));
 app.use('/api/transactions', require('./routes/api/transactions'));
+app.use('/api/profiles', require('./routes/api/profiles'));
 
 const PORT = 5000 || process.env.PORT;
 
