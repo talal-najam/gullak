@@ -11,7 +11,7 @@ const Landing = () => {
     // }
 
     return (
-        <h1>Nigga! Did you really just click About on a dev server?</h1>
+        <h1>Nigga! Did you really just click About on a Website?</h1>
     );
 };
 
