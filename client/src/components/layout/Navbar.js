@@ -47,7 +47,7 @@ const Navbar = () => {
     return (
         <nav class="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#362b01' }}>
             <div className="container">
-                <a class="navbar-brand" href="/">Gullak</a>
+                <Link class="navbar-brand" to="/">Gullak</Link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -58,10 +58,10 @@ const Navbar = () => {
                             <Link class="nav-link" to="/">Home <span class="sr-only">(current)</span></Link>
                         </li>
                         <li class="nav-item">
-                            <Link class="nav-link" to="#">About</Link>
+                            <Link class="nav-link" to="/about">About</Link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Github</a>
+                            <a class="nav-link " href="https://github.com/" target="_blank" tabindex="-1" aria-disabled="true">Github</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -69,7 +69,7 @@ const Navbar = () => {
                             <Link class="nav-link " to="/register" tabindex="-1" aria-disabled="true">Register</Link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Login</a>
+                            <Link class="nav-link" to="/login" tabindex="-1" aria-disabled="true">Login</Link>
                         </li>
                     </ul>
                 </div>

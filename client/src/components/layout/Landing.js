@@ -11,14 +11,16 @@ const Landing = () => {
     // }
 
     return (
-        <div class="jumbotron">
+        <div className="jumbotron">
             <div className="container" style={{ color: '#362b01' }}>
-                <h1 class="display-4 text-center">Gullak!</h1>
-                <p class="lead text-center">Your Ultimate Personal Finance And Goal Setting Tool.</p>
-                <hr class="my-4" />
-                <p className="text-center" >Set Goals. Achieve Them. Fulfill Yourself With Happiness.</p>
-                <p class="lead text-center">
-                    <a class="btn btn-primary btn-lg mt-4" style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '15rem' }} href="#" role="button">Learn more</a>
+                <h1 className="display-4 text-center">Gullak!</h1>
+                <p className="lead text-center">Your Ultimate Personal Finance And Financial Goal Setting Tool</p>
+                <hr className="my-4" />
+                <p className="text-center" >Set Financial Goals. Achieve Them. Fulfill Your Life With Happiness.</p>
+                <p className="lead text-center">
+                    <Link className="mybuttons btn btn-primary btn-lg mt-4" style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '10rem' }} to="/register" role="button">
+                        Join Today!
+                    </Link>
                 </p>
             </div>
         </div>
