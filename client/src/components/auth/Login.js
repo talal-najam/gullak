@@ -59,7 +59,7 @@ const Login = () => {
                             style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }}
                         />
                     </form>
-                    <p>
+                    <p className="mt-3">
                         Don't have an account? <Link to='/register'>Sign Up</Link>
                     </p>
                 </div>

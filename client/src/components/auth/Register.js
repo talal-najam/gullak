@@ -79,7 +79,7 @@ const Register = () => {
                             style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }}
                         />
                     </form>
-                    <p className="mt-1">
+                    <p className="mt-3">
                         Already have an account? <Link to='/login'>Sign In</Link>
                     </p>
                 </div>
