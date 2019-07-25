@@ -15,3 +15,12 @@ Checklist:
     
     - Transaction
         - Set up model for Transactions
+    
+    - Integrate Client
+        x Set up a clean client directory
+        x Set up scripts 
+        - Set up React Router
+        - Set up Redux
+        - Create Navigation Component
+        - Create Register Page
+        - Create Login Page
