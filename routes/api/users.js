@@ -20,16 +20,21 @@ router.post('/register', async (req, res) => {
         if (user) {
             return res.status(401).json('A User has already registered with this email address');
         } else {
+
+            // Create User object for ORM
             const newUser = new User({
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password,
             });
 
+            // Hash password
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(newUser.password, salt, (err, hash) => {
                     if (err) throw err;
                     newUser.password = hash;
+
+                    // Save and commit to DB
                     newUser
                         .save()
                         .then(user => res.json(user))
@@ -93,12 +98,14 @@ router.post('/login', (req, res) => {
 // @route 	GET api/users/current
 // @desc  	Return the current user
 // @access 	Private
-router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-    res.json({
-        id: req.user.id,
-        name: req.user.name,
-        email: req.user.email
-    });
+router.get('/current', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password');
+        res.json(user);
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).send('Server Error');
+    }
 });
 
 

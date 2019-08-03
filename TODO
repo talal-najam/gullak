@@ -1,26 +1,39 @@
 Checklist:
     
     - User
-        - Set up route for User Registration with password hashing
-        - Set up route for User Login with JWT authorization 
-        - Set up User Models for User
-        x Will need to find a way to capture user images
-        - Add income/salary
-    
+        Backend
+            ✔ Set up route for User Registration with password hashing @done(19-08-04 01:55)
+            ✔ Set up route for User Login with JWT authorization @done(19-08-04 01:55)
+            ✔ Set up User Models for User @done(19-08-04 01:55)
+            ☐ Will need to find a way to capture user images
+            ☐ Add income/salary
+            ✔ Remove the bcrypt token signing from the registesr function @done(19-08-04 01:59)
+        Frontend
+            ✔ Create Register Successfully using Redux and React @done(19-08-04 02:11)
+            ✔ Create Login Successfully using Redux and React @done(19-08-04 03:20)
+            ✔ Create Logout functionality for user @done(19-08-04 04:07)
+            ☐ Create private routes
+
     - Item
-        - Set up Model for Item successfully
-        - Set up route for getting User's all items
-        - Set up route for creating a new Item
-        - Made an Item goal calculator
-    
+        Backend
+            ☐ Set up Model for Item successfully
+            ☐ Set up route for getting User's all items
+            ☐ Set up route for creating a new Item
+            ☐ Made an Item goal calculator
+            ☐ Need a date goal to achieve this and calculation as to how much time is needed to achieve this
+        Frontend
+            ☐ Create a dashboard to load all items of the logged in User
+            ☐ Create a Goals component to view all the goals in a grid list
+            ☐ Create a Goal component to view the individual Goal card with all the information
+
     - Transaction
-        - Set up model for Transactions
+        ☐ Set up model for Transactions
     
     - Integrate Client
-        x Set up a clean client directory
-        x Set up scripts 
-        - Set up React Router
-        - Set up Redux
-        - Create Navigation Component
-        - Create Register Page
-        - Create Login Page
+        ☐ Set up a clean client directory
+        ☐ Set up scripts 
+        ☐ Set up React Router
+        ☐ Set up Redux
+        ☐ Create Navigation Component
+        ☐ Create Register Page
+        ☐ Create Login Page

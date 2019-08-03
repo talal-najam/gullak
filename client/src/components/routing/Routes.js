@@ -3,6 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 import Register from '../auth/Register';
 import Login from '../auth/Login';
 import About from '../layout/About.js';
+import Dashboard from '../dashboard/Dashboard';
+import PrivateRoute from './PrivateRoute';
+import Logout from '../auth/Logout';
 
 const Routes = () => {
     return (
@@ -12,9 +15,10 @@ const Routes = () => {
                 <Route exact path='/register' component={Register} />
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/about' component={About} />
+                <Route exact path='/logout' component={Logout} />
+                <PrivateRoute exact path='/dashboard' component={Dashboard} />
                 { /*<Route exact path='/profiles' component={Profiles} />
                 <Route exact path='/profile/:id' component={Profile} />
-                <PrivateRoute exact path='/dashboard' component={Dashboard} />
                 <PrivateRoute exact path='/create-profile' component={CreateProfile} />
                 <PrivateRoute exact path='/edit-profile' component={EditProfile} />
                 <PrivateRoute exact path='/add-experience' component={AddExperience} />

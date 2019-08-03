@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // const Landing = ({ isAuthenticated }) => {
 const Landing = () => {
@@ -20,6 +18,9 @@ const Landing = () => {
                 <p className="lead text-center">
                     <Link className="mybuttons btn btn-primary btn-lg mt-4" style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '10rem' }} to="/register" role="button">
                         Join Today!
+                    </Link>
+                    <Link className="mybuttons btn btn-primary btn-lg mt-4 ml-4" style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '10rem' }} to="/login" role="button">
+                        Login
                     </Link>
                 </p>
             </div>

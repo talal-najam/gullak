@@ -50,7 +50,7 @@ router.get('/goal/:itemid', passport.authenticate('jwt', { session: false }), as
             return res.json('This item does not belong to you')
         }
     } catch (err) {
-        return res.json('Some server error occured :(')
+        return res.json('Server error occured')
     }
 
     // Get Array of all transactions made to achieve this item
@@ -64,7 +64,7 @@ router.get('/goal/:itemid', passport.authenticate('jwt', { session: false }), as
             console.log(moneySpentOnItem);
             return res.json(calculateGoal(itemName, totalItemAmount, moneySpentOnItem))
         })
-        .catch(err => res.json('some shit happened bruh'));
+        .catch(err => res.json('Server error occured'));
 })
 
 
@@ -74,7 +74,6 @@ function calculateGoal(name, amount, moneySpent) {
     moneySpent.forEach(money => {
         sum += money;
     });
-    console.log('reached here too');
 
     percentage = (100 * sum) / amount;
 

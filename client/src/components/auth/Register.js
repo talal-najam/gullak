@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 // 40 15:57
 
-const Register = ({ setAlert, register }) => {
+const Register = ({ setAlert, register, history }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -26,7 +26,10 @@ const Register = ({ setAlert, register }) => {
         if (password !== password2) {
             setAlert('Passwords do not match', 'danger');
         } else {
-            register({ name, email, password })
+            register({ name, email, password }, history);
+            setAlert('Your Account Has Been Successfully Registered', 'success');
+
+            console.log('Register Request Successfully made')
         }
     };
 
