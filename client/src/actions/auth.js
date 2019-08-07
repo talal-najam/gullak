@@ -3,9 +3,12 @@ import { setAlert } from './alert';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
+
 export const loadUser = () => async dispatch => {
     if (localStorage.token) {
         setAuthToken(localStorage.token);
+    } else {
+        dispatch({ type: AUTH_ERROR })
     }
 
     try {
@@ -56,46 +59,8 @@ export const register = ({ name, email, password }, history) => async dispatch =
     }
 }
 
-
-// // Register User
-// export const login = (email, password, history) => async dispatch => {
-//     const config = {
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     }
-
-//     const body = JSON.stringify({ email, password });
-
-//     try {
-//         console.log('registering');
-//         const res = await axios.post('/api/users/login', body, config);
-//         console.log('Login Res', res);
-//         dispatch({
-//             type: LOGIN_SUCCESS,
-//             payload: res.data
-//         });
-//         dispatch(setCurrentUser(decoded))
-//         history.push('/dashboard');
-//     } catch (err) {
-
-//         const errors = err.response.data;
-
-
-//         if (errors) {
-//             dispatch(setAlert(errors, 'danger'));
-//         }
-
-//         return dispatch({
-//             type: LOGIN_FAIL
-//         })
-//     }
-// }
-
 // Login - Get User Token
 export const loginUser = (email, password, history) => dispatch => {
-
-
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -114,15 +79,26 @@ export const loginUser = (email, password, history) => dispatch => {
             // Set token to Auth header
             setAuthToken(token);
             // Decode token to get user data
-            const decoded = jwt_decode(token);
-            console.log('Decoded token = ' + decoded);
+            const user = jwt_decode(token);
+            console.log('Decoded token = ' + user);
             // Set current user
-            dispatch(setCurrentUser(decoded));
+            const payload = {
+                user,
+                token
+            }
+            dispatch({
+                type: SET_CURRENT_USER,
+                payload
+            })
             history.push('/dashboard');
         })
         .catch(err => {
-            const errors = err.response.data;
-            console.log('Reached Login Errors :(')
+            console.log("err ", err);
+            console.log("response ", err.response);
+            // console.log("data ", err.response.data);
+
+            // const errors = err.response.data;
+            const errors = err;
 
             if (errors) {
                 dispatch(setAlert(errors, 'danger'));

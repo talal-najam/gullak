@@ -66,7 +66,7 @@ const Login = ({ loginUser, history }) => {
 }
 
 Login.propTypes = {
-    login: PropTypes.func.isRequired,
+    loginUser: PropTypes.func.isRequired,
 }
 
 export default connect(null, { loginUser })(Login);

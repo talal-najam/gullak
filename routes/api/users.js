@@ -11,6 +11,7 @@ const passport = require('passport');
 // @route 	GET api/users/register
 // @desc  	Register a new user
 // @access 	Public
+// TODO: Turn this method to async and add express validator - server side validation
 router.post('/register', async (req, res) => {
 
     // Check database if User already exists
@@ -52,6 +53,7 @@ router.post('/register', async (req, res) => {
 // @route 	GET api/users/login
 // @desc  	Login User / Returning JWT Token
 // @access 	Public
+// TODO: Turn this method to async and add express validator - server side validation
 router.post('/login', (req, res) => {
 
     const { email, password } = req.body;
@@ -88,7 +90,7 @@ router.post('/login', (req, res) => {
                                 })
                             });
                     } else {
-                        return res.status(400).json('Password Incorrect');
+                        return res.status(400).json('The password you have entered is incorrect');
                     }
                 })
         })

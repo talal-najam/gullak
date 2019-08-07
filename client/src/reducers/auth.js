@@ -1,13 +1,13 @@
 import { REGISTER_SUCCESS, REGISTER_FAIL, LOGOUT_USER, LOGIN_SUCCESS, LOGIN_FAIL, USER_LOADED, AUTH_ERROR, SET_CURRENT_USER } from '../actions/types';
 import isEmpty from '../validation/is-empty';
-const intialState = {
+const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
-    loading: false,
+    loading: true,
     user: null
 };
 
-export default function (state = intialState, action) {
+export default function (state = initialState, action) {
     const { type, payload } = action;
 
     switch (type) {
@@ -25,26 +25,20 @@ export default function (state = intialState, action) {
                 isAuthenticated: false,
                 loading: false
             }
-        case LOGIN_SUCCESS:
-            localStorage.setItem('token', payload.token);
-            console.log(payload);
-            return {
-                ...state,
-                ...payload,
-                isAuthenticated: true,
-                loading: false
-            }
         case SET_CURRENT_USER:
             console.log(payload);
+            console.log('Intial state = ' + state.token);
             return {
                 ...state,
-                isAuthenticated: !isEmpty(payload),
-                user: payload,
-                loading: false
+                isAuthenticated: !isEmpty(payload.user),
+                user: payload.user,
+                loading: false,
+                token: payload.token
             }
         case REGISTER_FAIL:
         case AUTH_ERROR:
         case LOGIN_FAIL:
+        case LOGOUT_USER:
             localStorage.removeItem('token');
             return {
                 ...state,
@@ -52,13 +46,6 @@ export default function (state = intialState, action) {
                 isAuthenticated: false,
                 loading: false
             }
-        case LOGOUT_USER:
-            return {
-                ...state,
-                token: null,
-                isAuthenticated: false,
-            }
-
         default:
             return state;
     }

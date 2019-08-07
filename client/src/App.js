@@ -10,12 +10,14 @@ import { loadUser } from './actions/auth';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
+import { SET_ALERT } from './actions/types';
 
 function App() {
 
   // Component Did Mount LifeCycle Method Replica
+  console.log("before use effect")
   useEffect(() => {
-    store.dispatch(loadUser);
+    store.dispatch(loadUser());
   }, []);
 
   return (
