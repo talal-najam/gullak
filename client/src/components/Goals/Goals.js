@@ -13,7 +13,6 @@ const Dashboard = () => {
         axios.get('api/items/myitems')
             .then(res => setGoals(res.data))
             .catch(err => setError(err));
-        console.log.()
     }, []);
 
 

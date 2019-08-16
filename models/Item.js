@@ -24,6 +24,13 @@ const itemSchema = new Schema({
     {
         type: String,
     },
+    savings: {
+        type: String,
+        default: 0
+    },
+    recommended_savings: {
+        type: String
+    },
     date: { type: String, default: Date.now }
 });
 

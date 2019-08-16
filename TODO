@@ -51,3 +51,7 @@ Checklist:
         ☐ Provision AWS Resources
         ☐ Configure SGs and Instances
         ☐ Deploy to Cloud
+
+Bugs:
+    ✔ Fix why dashboard items don't load up on initial login @done(19-08-17 01:05)
+    ☐ Fix user state is not not preserved and loaded when page is refreshed

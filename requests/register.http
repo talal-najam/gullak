@@ -1,8 +1,5 @@
-POST http://localhost:5000/api/users/register
+GET http://localhost:5000/api/items/myitems
+
 Content-Type: application/json
 
-{
-    "name": "Talooly",
-    "email": "talalq8@gmail.com",
-    "password": "123"
-}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNDVkZDQzOTk4NjRhNDIzODIxNmI5MyIsIm5hbWUiOiJIYXNhbiBTaGVpa2giLCJpYXQiOjE1NjUyNzAxMjksImV4cCI6MTU2NTI3MzcyOX0.Y5QB9Wq7600g9WdoxuX4euA_joOVeN5MT-Rxf9mroNQ

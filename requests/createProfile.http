@@ -1,9 +1,9 @@
-GET http://localhost:5000/api/items/myitems
+GET  http://localhost:5000/api/items/5d4c209d4954533f28a4c77d
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNDVkZDQzOTk4NjRhNDIzODIxNmI5MyIsIm5hbWUiOiJIYXNhbiBTaGVpa2giLCJpYXQiOjE1NjUxOTQxMTgsImV4cCI6MTU2NTE5NzcxOH0.pMldz-LkN4F1PyhSmBODsgXN36EMIfqbnp9rJMIYQ0Y
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNDVkZDQzOTk4NjRhNDIzODIxNmI5MyIsIm5hbWUiOiJIYXNhbiBTaGVpa2giLCJpYXQiOjE1NjUyNzAxMjksImV4cCI6MTU2NTI3MzcyOX0.Y5QB9Wq7600g9WdoxuX4euA_joOVeN5MT-Rxf9mroNQ
 
 {
-    "name": "Macbook Pro 15-inch",
-    "price": "10,499",
-    "url": "https://www.apple.com/my/shop/buy-mac/macbook-pro/15-inch"
+    "name": "McChicken",
+    "price": "15",
+    "url": "https://www.mcdonalds.com.my/menu/big-mac"
 }

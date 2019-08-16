@@ -32,6 +32,36 @@ router.post('/', passport.authenticate('jwt', { session: false }), async (req, r
 })
 
 
+// @route 	GET api/items/:itemid
+// @desc  	Get item by id
+// @access 	Private
+router.get('/:itemid', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    const itemid = req.params.itemid;
+    try {
+        const item = await Item.findById(itemid)
+        console.log("item " + item);
+        console.log("user " + req.user);
+
+        if (item) {
+            if (item.user == req.user.id) {
+                return res.status(200).json(item);
+            } else {
+                return res.json({ msg: 'This item does not belong to you' });
+            }
+        } else {
+            return res.status(400).json({
+                msg: 'Item not found',
+            })
+        }
+    } catch (err) {
+        res.status(500).json({
+            msg: 'Something went wrong',
+            err: err.message,
+        })
+    }
+})
+
+
 router.get('/goal/:itemid', passport.authenticate('jwt', { session: false }), async (req, res) => {
     let moneySpentOnItem = [];
     let totalItemAmount = 0;
