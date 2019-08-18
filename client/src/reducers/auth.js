@@ -25,14 +25,6 @@ export default function (state = initialState, action) {
                 isAuthenticated: false,
                 loading: false
             }
-        case SET_CURRENT_USER:
-            return {
-                ...state,
-                isAuthenticated: !isEmpty(payload.user),
-                user: payload.user,
-                loading: false,
-                token: payload.token
-            }
         case REGISTER_FAIL:
         case AUTH_ERROR:
         case LOGIN_FAIL:

@@ -1,8 +1,0 @@
-POST http://localhost:5000/api/users/login
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNDVkZDQzOTk4NjRhNDIzODIxNmI5MyIsIm5hbWUiOiJIYXNhbiBTaGVpa2giLCJpYXQiOjE1NjQ5MDcwMDMsImV4cCI6MTU2NDkxMDYwM30.LLI5pZxb1-A-XvtLuYoaJ2lQukaYSCTLyQgZRMvgd4w
-
-{
-    "email": "hasan@gmail.com",
-    "password": "cookies"
-}

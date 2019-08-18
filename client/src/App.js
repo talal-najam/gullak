@@ -20,10 +20,9 @@ function App() {
   }
 
   // Component Did Mount LifeCycle Method Replica
-  console.log("before use effect")
   useEffect(() => {
     store.dispatch(loadUser());
-  }, []);
+  }, [loadUser]);
 
   return (
     <Provider store={store}>

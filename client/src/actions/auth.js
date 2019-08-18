@@ -12,8 +12,7 @@ export const loadUser = () => async dispatch => {
     }
 
     try {
-        const res = await axios.get('/api/users/current');
-        console.log('REACHED USERLOADED = ', res);
+        const res = await axios.get('/api/users/current', { headers: { "Authorizatoin": localStorage.token } });
         dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -36,9 +35,7 @@ export const register = ({ name, email, password }, history) => async dispatch =
     const body = JSON.stringify({ name, email, password });
 
     try {
-        console.log('registering');
         const res = await axios.post('/api/users/register', body, config);
-        console.log(res);
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
@@ -80,24 +77,18 @@ export const loginUser = (email, password, history) => dispatch => {
             setAuthToken(token);
             // Decode token to get user data
             const user = jwt_decode(token);
-            console.log('Decoded token = ' + user);
             // Set current user
             const payload = {
                 user,
                 token
             }
             dispatch({
-                type: SET_CURRENT_USER,
+                type: USER_LOADED,
                 payload
             })
             history.push('/dashboard');
         })
         .catch(err => {
-            console.log("err ", err);
-            console.log("response ", err.response);
-            // console.log("data ", err.response.data);
-
-            // const errors = err.response.data;
             const errors = err;
 
             if (errors) {
@@ -112,15 +103,10 @@ export const loginUser = (email, password, history) => dispatch => {
 };
 
 
-export const setCurrentUser = decoded => {
-    return {
-        type: SET_CURRENT_USER,
-        payload: decoded
-    }
-}
-
 export const logout = () => dispatch => {
     localStorage.removeItem('token');
     setAuthToken(false);
-    dispatch(setCurrentUser({}));
+    dispatch({
+        type: LOGOUT_USER
+    })
 }

@@ -39,11 +39,41 @@ router.get('/:itemid', passport.authenticate('jwt', { session: false }), async (
     const itemid = req.params.itemid;
     try {
         const item = await Item.findById(itemid)
-        console.log("item " + item);
-        console.log("user " + req.user);
-
         if (item) {
             if (item.user == req.user.id) {
+                return res.status(200).json(item);
+            } else {
+                return res.json({ msg: 'This item does not belong to you' });
+            }
+        } else {
+            return res.status(400).json({
+                msg: 'Item not found',
+            })
+        }
+    } catch (err) {
+        res.status(500).json({
+            msg: 'Something went wrong',
+            err: err.message,
+        })
+    }
+})
+
+
+// @route 	POST api/items/:itemid
+// @desc  	Add savings to an Item
+// @access 	Private
+router.post('/:itemid', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    const itemid = req.params.itemid;
+    let { savings } = req.body;
+    try {
+        console.log(savings);
+        reqsavings = parseInt(savings);
+        let item = await Item.findById(itemid)
+        if (item) {
+            if (item.user == req.user.id) {
+                let existingSavings = parseInt(item.savings);
+                const savings = existingSavings + reqsavings;
+                item = await Item.findOneAndUpdate({ _id: itemid }, { $set: { savings } }, { new: true });
                 return res.status(200).json(item);
             } else {
                 return res.json({ msg: 'This item does not belong to you' });
@@ -91,7 +121,6 @@ router.get('/goal/:itemid', passport.authenticate('jwt', { session: false }), as
                 money = parseInt(transaction.amount);
                 moneySpentOnItem.push(money);
             });
-            console.log(moneySpentOnItem);
             return res.json(calculateGoal(itemName, totalItemAmount, moneySpentOnItem))
         })
         .catch(err => res.json('Server error occured'));

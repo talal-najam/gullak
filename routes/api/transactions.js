@@ -26,7 +26,6 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
     Item.findOne({ name: item })
         .then(item => {
             if (!item) return res.json('no item lol');
-            console.log(user, item.user, item.user.id);
             if (item.user == user) {
                 transaction = new Transaction({
                     item: item._id,

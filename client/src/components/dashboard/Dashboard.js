@@ -5,19 +5,24 @@ import Item from '../items/Item'
 import { getItems } from '../../actions/item';
 
 const Dashboard = ({ getItems, item: { loading, items } }) => {
-
+    let output;
 
     useEffect(() => {
         getItems();
     }, [getItems]);
 
-    const output = loading ? (<h1>Loading...</h1>) : (items.map(item => <Item key={item._id} name={item.name} price={item.price} url={item.url} goalAchieved={item.goalAchieved} goalPercentage={item.goalPercentage} date={item.date} />))
 
+    if (items.length > 0) {
+        output = loading ? (<h1>Loading...</h1>) : (items.map(item => <Item key={item._id} id={item._id} name={item.name} price={item.price} url={item.url} goalAchieved={item.goalAchieved} goalPercentage={item.goalPercentage} date={item.date} />))
+
+    } else {
+        output = loading ? (<h1>Loading...</h1>) : (<h3>Your Item list is empty :(</h3>)
+    }
 
     return (
         <div>
 
-            <h1 className='display-4'>Dashboard</h1>
+            <h3 className='display-4'>Dashboard</h3>
             <hr />
             <div className="items">
                 {output}

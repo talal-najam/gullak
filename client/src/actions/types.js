@@ -13,3 +13,4 @@ export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const GET_ITEMS = 'GET_ITEMS';
 export const GET_ITEM = 'GET_ITEM';
 export const ITEM_ERROR = 'ITEM_ERROR'
+export const CLEAR_ITEMS = 'CLEAR_ITEMS'

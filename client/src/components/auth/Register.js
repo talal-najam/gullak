@@ -28,8 +28,6 @@ const Register = ({ setAlert, register, history }) => {
         } else {
             register({ name, email, password }, history);
             setAlert('Your Account Has Been Successfully Registered', 'success');
-
-            console.log('Register Request Successfully made')
         }
     };
 

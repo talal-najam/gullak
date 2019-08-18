@@ -19,7 +19,6 @@ const Login = ({ loginUser, history }) => {
 
     const onSubmit = async e => {
         e.preventDefault();
-        console.log(formData);
         loginUser(email, password, history);
     };
 

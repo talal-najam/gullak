@@ -33,6 +33,9 @@ body{
     grid-gap: 1.5rem;
 }
 
+.item-background{
+}
+
 a.custom-card,
 a.custom-card:hover {
     color: inherit
