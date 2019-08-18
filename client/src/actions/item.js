@@ -49,10 +49,11 @@ export const addSaving = (id, amount) => async dispatch => {
 
     try {
         const res = await axios.post(`/api/items/${id}`, body, config)
-        return dispatch({
+        dispatch({
             type: ADD_SAVINGS,
             payload: res.data
         })
+        return dispatch(setAlert(`Added ${res.data.savings} to savings for ${res.data.name}`, "success"));
     } catch (err) {
         return dispatch(setAlert(err.response.data, "danger"));
     }

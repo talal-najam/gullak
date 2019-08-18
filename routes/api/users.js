@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => {
         const user = await User.findOne({ email: req.body.email })
 
         if (user) {
-            return res.status(401).json('A User has already registered with this email address');
+            return res.status(401).json('An account with this email address already exists!');
         } else {
 
             // Create User object for ORM

@@ -7,7 +7,10 @@ const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, dat
     return (
         <div className="card" style={{ 'width': '95%' }}>
             <div className="card-body">
-                <h5 className="card-title">{name}</h5>
+                <div className="d-flex mb-0">
+                    <h5 className="card-title">{name}</h5>
+                    <a href="#" className="ml-auto text-danger">Delete</a>
+                </div>
                 <hr />
                 <h6 className="card-subtitle mb-2 text-muted">Price: MYR <span className="font-weight-bold">{price}</span></h6>
                 <h6 className="card-subtitle mb-2 text-muted">Savings: MYR <span className="font-weight-bold">{savings}</span></h6>

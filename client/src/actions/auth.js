@@ -40,6 +40,7 @@ export const register = ({ name, email, password }, history) => async dispatch =
             type: REGISTER_SUCCESS,
             payload: res.data
         });
+        setAlert('Your Account Has Been Successfully Registered', 'success');
         history.push('/login');
     } catch (err) {
 
@@ -86,6 +87,7 @@ export const loginUser = (email, password, history) => dispatch => {
                 type: USER_LOADED,
                 payload
             })
+
             history.push('/dashboard');
         })
         .catch(err => {
