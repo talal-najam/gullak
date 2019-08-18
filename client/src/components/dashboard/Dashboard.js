@@ -13,7 +13,7 @@ const Dashboard = ({ getItems, item: { loading, items } }) => {
 
 
     if (items.length > 0) {
-        output = loading ? (<h1>Loading...</h1>) : (items.map(item => <Item key={item._id} id={item._id} name={item.name} price={item.price} url={item.url} goalAchieved={item.goalAchieved} goalPercentage={item.goalPercentage} date={item.date} />))
+        output = loading ? (<h1>Loading...</h1>) : (items.map(item => <Item key={item._id} savings={item.savings} id={item._id} name={item.name} price={item.price} url={item.url} goalAchieved={item.goalAchieved} goalPercentage={item.goalPercentage} date={item.date} />))
 
     } else {
         output = loading ? (<h1>Loading...</h1>) : (<h3>Your Item list is empty :(</h3>)

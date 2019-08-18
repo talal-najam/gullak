@@ -1,4 +1,4 @@
-import { GET_ITEMS, GET_ITEM, CLEAR_ITEMS } from '../actions/types';
+import { GET_ITEMS, GET_ITEM, CLEAR_ITEMS, ADD_SAVINGS } from '../actions/types';
 
 const initialState = {
     item: null,
@@ -28,6 +28,12 @@ export default function (state = initialState, action) {
                 ...state,
                 items: [],
                 loading: false
+            }
+        case ADD_SAVINGS:
+            return {
+                ...state,
+                item: payload,
+                loading: false,
             }
         default:
             return state;

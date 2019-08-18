@@ -19,11 +19,12 @@ router.get('/myitems', passport.authenticate('jwt', { session: false }), (req, r
 // @desc  	Create a new Item
 // @access 	Private
 router.post('/', passport.authenticate('jwt', { session: false }), async (req, res) => {
-    const { name, price, url } = req.body
+    const { name, price, url, savings } = req.body
     const newItem = new Item({
         name,
         price,
         url,
+        savings,
         user: req.user.id
     });
 
@@ -64,10 +65,10 @@ router.get('/:itemid', passport.authenticate('jwt', { session: false }), async (
 // @access 	Private
 router.post('/:itemid', passport.authenticate('jwt', { session: false }), async (req, res) => {
     const itemid = req.params.itemid;
-    let { savings } = req.body;
+    let { amount } = req.body;
     try {
-        console.log(savings);
-        reqsavings = parseInt(savings);
+        console.log(amount);
+        reqsavings = parseInt(amount);
         let item = await Item.findById(itemid)
         if (item) {
             if (item.user == req.user.id) {

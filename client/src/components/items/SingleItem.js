@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { getItem } from '../../actions/item'
+import { getItem, addSaving } from '../../actions/item'
 import { Link } from 'react-router-dom'
 
-const SingleItem = ({ getItem, item: { loading, item }, match }) => {
+const SingleItem = ({ getItem, addSaving, item: { loading, item }, match }) => {
 
     const [savings, addSavings] = useState({
         amount: ""
@@ -48,7 +48,8 @@ const SingleItem = ({ getItem, item: { loading, item }, match }) => {
                             <div className="col-lg-5 mx-auto col-md-4 mx-auto col-sm-12 ">
                                 <h3 className="text-centre">Financial details</h3>
                                 <p>Current Savings: {item.savings}</p>
-                                <p>Goal Achieved?: {item.goalAchieved ? (<span>Yes</span>) : (<span>No</span>)}</p>
+                                <p>Goal Achieved?: {parseInt(item.savings) > parseInt(item.price) ? (<span>Yes</span>) : (<span>No</span>)}</p>
+                                {/* <p>Goal Achieved?: {item.goalAchieved ? (<span>Yes</span>) : (<span>No</span>)}</p> */}
                                 <p>Product page: <a target="_blank" href={item.url}>{item.name}</a></p>
                             </div>
 
@@ -62,12 +63,12 @@ const SingleItem = ({ getItem, item: { loading, item }, match }) => {
                                         className="form-control"
                                         type='text'
                                         placeholder='Add to savings'
-                                        name='savings'
+                                        name='amount'
                                         value={amount}
                                         onChange={e => onChange(e)}
                                     />
                                     <div className="text-center mt-3">
-                                        <button onClick={() => { }} className='mybuttons btn btn-primary '
+                                        <button onClick={() => { addSaving(item._id, amount) }} className='mybuttons btn btn-primary '
                                             style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }}
                                         >Submit</button>
                                     </div>
@@ -98,5 +99,5 @@ const mapStateToProps = state => ({
     item: state.item
 })
 
-export default connect(mapStateToProps, { getItem })(SingleItem)
+export default connect(mapStateToProps, { getItem, addSaving })(SingleItem)
 
