@@ -52,7 +52,7 @@ const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
                             <Link className="nav-link" to="/about">About</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link " href="https://github.com/" target="_blank" rel="noopener noreferrer" tabIndex="-1" aria-disabled="true">Github</a>
+                            <a className="nav-link " href="https://github.com/mistat44/gullak" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer" tabIndex="-1" aria-disabled="true">Github</a>
                         </li>
                     </ul>
                     <ul className="navbar-nav ml-auto mt-2 mt-lg-0">

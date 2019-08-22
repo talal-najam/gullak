@@ -28,6 +28,7 @@ Checklist:
                 ☐ Need a date goal to achieve this and calculation as to how much time is needed to achieve this
                 ☐ Need a route for add to savings to add savings to existing items
                 ☐ Implement delete item by id route
+                ☐ Need to set a goalAchieveDate and goalPercentage as part of Item
             ☐ Frontend
                 ✔ Create a dashboard to load all items of the logged in User @done(19-08-17 22:33)
                 ✔ Create a Items component to view all the Items in a grid list @done(19-08-17 22:34)
@@ -64,4 +65,5 @@ Checklist:
 
 Bugs:
     ✔ Fix why dashboard items don't load up on initial login @done(19-08-17 01:05)
-    ☐ Fix user state is not not preserved and loaded when page is refreshed
+    ☐ Fix user state is not not preserved and loaded when page is refreshed'
+    ☐ Replace the frontend UI framework from Bootstrap to Materialize CSS

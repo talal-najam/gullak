@@ -18,7 +18,7 @@ const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, dat
                 <hr />
                 <div className="text-center">
 
-                    {url && (<a href={url} target="_blank" className="btn btn-outline-primary card-link mr-3">Visit Page</a>)}
+                    {url && (<a href={url} target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary card-link mr-3">Visit Page</a>)}
                     <Link to={`/myitems/${id}`} className="btn btn-primary ml-3">Modify Item</Link>
                 </div>
 
