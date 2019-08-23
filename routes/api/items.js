@@ -33,6 +33,25 @@ router.post('/', passport.authenticate('jwt', { session: false }), async (req, r
 })
 
 
+// @route 	POST api/items/:itemid
+// @desc  	Create a new Item
+// @access 	Private
+router.delete('/:itemid', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    const { itemid } = req.params
+    try {
+        const item = await Item.findById(itemid)
+        if (item) {
+            await item.remove();
+            res.json({ msg: 'Item successfully deleted' })
+        } else {
+            res.status(404).json({ msg: 'Item not found' })
+        }
+    } catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+})
+
+
 // @route 	GET api/items/:itemid
 // @desc  	Get item by id
 // @access 	Private

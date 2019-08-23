@@ -27,7 +27,7 @@ Checklist:
                 ✔ Need a route to enter specific amount to an existing item goal @done(19-08-18 14:04)
                 ☐ Need a date goal to achieve this and calculation as to how much time is needed to achieve this
                 ☐ Need a route for add to savings to add savings to existing items
-                ☐ Implement delete item by id route
+                ✔ Implement delete item by id route @done(19-08-23 21:24)
                 ☐ Need to set a goalAchieveDate and goalPercentage as part of Item
             ☐ Frontend
                 ✔ Create a dashboard to load all items of the logged in User @done(19-08-17 22:33)
@@ -67,3 +67,4 @@ Bugs:
     ✔ Fix why dashboard items don't load up on initial login @done(19-08-17 01:05)
     ☐ Fix user state is not not preserved and loaded when page is refreshed'
     ☐ Replace the frontend UI framework from Bootstrap to Materialize CSS
+    ☐ Fix the Footer component to make sure it comes at the end of the page
