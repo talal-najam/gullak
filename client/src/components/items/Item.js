@@ -11,8 +11,8 @@ const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, dat
         <div className="card" style={{ 'width': '95%' }}>
             <div className="card-body">
                 <div className="d-flex mb-0">
-                    <h5 className="card-title">{name}</h5>
-                    <button onClick={() => deleteItem(id)} className="ml-auto text-danger">Delete</button>
+                    <h5 className="card-title pt-2">{name}</h5>
+                    <button onClick={() => deleteItem(id)} className="btn btn-outline-danger ml-auto mb-1">Delete</button>
                 </div>
                 <hr />
                 <h6 className="card-subtitle mb-2 text-muted">Price: MYR <span className="font-weight-bold">{price}</span></h6>

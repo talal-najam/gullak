@@ -8,6 +8,7 @@ import { setAlert } from '../../actions/alert';
 
 const Dashboard = ({ getItems, item: { loading, items } }) => {
     let output;
+    let listItems;
 
     useEffect(() => {
         getItems();
@@ -15,7 +16,18 @@ const Dashboard = ({ getItems, item: { loading, items } }) => {
 
 
     if (items.length > 0) {
-        output = loading ? (<h1>Loading...</h1>) : (items.map(item => <Item key={item._id} savings={item.savings} id={item._id} name={item.name} price={item.price} url={item.url} goalAchieved={item.goalAchieved} goalPercentage={item.goalPercentage} date={item.date} />))
+        listItems = (items.map(item => <Item key={item._id} savings={item.savings} id={item._id} name={item.name} price={item.price} url={item.url} goalAchieved={item.goalAchieved} goalPercentage={item.goalPercentage} date={item.date} />));
+        output = loading ? (<h1>Loading...</h1>) : (
+            <div>
+                <Link to="/create-item" className="btn btn-primary mt-3" id="create-button">Create Item</Link>
+                <hr />
+                <div className="items">
+                    {listItems}
+                </div>
+            </div>
+        )
+
+
 
     } else {
         output = loading ? (<h1>Loading...</h1>) : (<h3>Your Item list is empty :(</h3 >)
@@ -23,14 +35,7 @@ const Dashboard = ({ getItems, item: { loading, items } }) => {
 
     return (
         <div>
-
-            {/* <h3 className='display-4'>Dashboard</h3> */}
-            <Link to="/create-item" className="btn btn-primary mt-3" id="create-button">Create Item</Link>
-            <hr />
-            <div className="items">
-                {output}
-            </div>
-
+            {output}
         </div>
     )
 }

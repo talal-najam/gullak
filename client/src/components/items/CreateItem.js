@@ -84,9 +84,6 @@ const CreateItem = ({ createItem, history }) => {
                     <p className="mt-3">
                         Don't have an account? <Link to='/register'>Sign Up</Link>
                     </p>
-
-
-
                 </div>
             </div>
         </div>

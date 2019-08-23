@@ -38,6 +38,8 @@ Checklist:
                 ☐ Work on the form to add/create new items
                 ☐ Set up logic so that create items now link is shown when no items are created by the user
                 ☐ Implement delete action and reducer
+                ☐ Optional: Add a card layout editing in Real Time as you fill in the Create Item form
+                ☐ Optional: Add a progress bar calculating the savings and target amount percentage
 
         - Transaction
             ✔ Set up model for Transactions @done(19-08-18 22:49)
