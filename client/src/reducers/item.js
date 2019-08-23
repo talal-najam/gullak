@@ -1,4 +1,4 @@
-import { GET_ITEMS, GET_ITEM, CLEAR_ITEMS, ADD_SAVINGS } from '../actions/types';
+import { GET_ITEMS, GET_ITEM, CLEAR_ITEMS, ADD_SAVINGS, DELETE_ITEM, CREATE_ITEM } from '../actions/types';
 
 const initialState = {
     item: null,
@@ -23,6 +23,18 @@ export default function (state = initialState, action) {
                 item: payload,
                 loading: false
             }
+        case CREATE_ITEM:
+            return {
+                ...state,
+                items: [payload, ...state.items],
+                loading: false
+            }
+        case DELETE_ITEM:
+            return {
+                ...state,
+                items: state.items.filter(item => item._id !== payload),
+                loading: false
+            };
         case CLEAR_ITEMS:
             return {
                 ...state,

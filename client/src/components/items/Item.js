@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { deleteItem } from '../../actions/item';
 
-const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, date, getItem }) => {
+const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, date, deleteItem }) => {
     const boolHandle = goalAchieved == true ? (<span>Yes</span>) : (<span>No</span>)
 
     return (
@@ -9,7 +12,7 @@ const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, dat
             <div className="card-body">
                 <div className="d-flex mb-0">
                     <h5 className="card-title">{name}</h5>
-                    <a href="#" className="ml-auto text-danger">Delete</a>
+                    <button onClick={() => deleteItem(id)} className="ml-auto text-danger">Delete</button>
                 </div>
                 <hr />
                 <h6 className="card-subtitle mb-2 text-muted">Price: MYR <span className="font-weight-bold">{price}</span></h6>
@@ -27,4 +30,8 @@ const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, dat
     )
 }
 
-export default Item;
+Item.propTypes = {
+    deleteItem: PropTypes.func.isRequired,
+}
+
+export default connect(null, { deleteItem })(Item);

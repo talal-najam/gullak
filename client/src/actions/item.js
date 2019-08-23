@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ITEMS, ITEM_ERROR, GET_ITEM, ADD_SAVINGS } from './types';
+import { GET_ITEMS, ITEM_ERROR, GET_ITEM, ADD_SAVINGS, DELETE_ITEM, CREATE_ITEM } from './types';
 import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken';
 
@@ -32,6 +32,53 @@ export const getItem = id => async dispatch => {
     }
 }
 
+export const deleteItem = id => async dispatch => {
+    const token = localStorage.getItem('token');
+    setAuthToken(token);
+
+    try {
+        const res = await axios.delete(`/api/items/${id}`, { headers: { "Authorization": token } });
+        dispatch({
+            type: DELETE_ITEM,
+            payload: id
+        })
+    } catch (err) {
+        return dispatch(setAlert(err.response.data, "danger"));
+    }
+}
+
+export const createItem = (name, price, url, savings, history) => async dispatch => {
+    const token = localStorage.getItem('token');
+    setAuthToken(token);
+
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token
+        }
+    }
+
+    const newItem = {};
+    if (name !== "") newItem.name = name;
+    if (price !== "") newItem.price = price;
+    if (url !== "") newItem.url = url;
+    if (savings !== "") newItem.savings = savings;
+
+    const body = JSON.stringify(newItem);
+
+    try {
+        const res = await axios.post(`/api/items/`, body, config)
+        dispatch({
+            type: CREATE_ITEM,
+            payload: res.data
+        })
+        dispatch(setAlert('Item successfully created', 'success'));
+        history.push('/');
+    } catch (err) {
+        return dispatch(setAlert(err.response.data, "danger"));
+    }
+}
+
 
 export const addSaving = (id, amount) => async dispatch => {
     const token = localStorage.getItem('token');
@@ -53,7 +100,7 @@ export const addSaving = (id, amount) => async dispatch => {
             type: ADD_SAVINGS,
             payload: res.data
         })
-        return dispatch(setAlert(`Added ${res.data.savings} to savings for ${res.data.name}`, "success"));
+        return dispatch(setAlert(`Added ${amount} to savings for ${res.data.name}. Current savings = ${res.data.savings}`, "success"));
     } catch (err) {
         return dispatch(setAlert(err.response.data, "danger"));
     }

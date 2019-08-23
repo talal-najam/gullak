@@ -7,6 +7,7 @@ import Dashboard from '../dashboard/Dashboard';
 import PrivateRoute from './PrivateRoute';
 import Logout from '../auth/Logout';
 import SingleItem from '../../components/items/SingleItem';
+import CreateItem from '../../components/items/CreateItem';
 
 const Routes = () => {
     return (
@@ -19,6 +20,7 @@ const Routes = () => {
                 <Route exact path='/logout' component={Logout} />
                 <PrivateRoute exact path='/dashboard' component={Dashboard} />
                 <PrivateRoute exact path='/myitems/:id' component={SingleItem} />
+                <PrivateRoute exact path='/create-item' component={CreateItem} />
                 { /*<Route exact path='/profiles' component={Profiles} />
                 <Route exact path='/profile/:id' component={Profile} />
                 <PrivateRoute exact path='/create-profile' component={CreateProfile} />
