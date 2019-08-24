@@ -26,7 +26,7 @@ Checklist:
                 ✔ Made an Item goal calculator @done(19-08-17 22:33)
                 ✔ Need a route to enter specific amount to an existing item goal @done(19-08-18 14:04)
                 ☐ Need a date goal to achieve this and calculation as to how much time is needed to achieve this
-                ☐ Need a route for add to savings to add savings to existing items
+                ✔ Need a route for add to savings to add savings to existing items @done(19-08-24 21:33)
                 ✔ Implement delete item by id route @done(19-08-23 21:24)
                 ☐ Need to set a goalAchieveDate and goalPercentage as part of Item
             ☐ Frontend
@@ -42,9 +42,13 @@ Checklist:
                 ☐ Optional: Add a progress bar calculating the savings and target amount percentage
 
         - Transaction
-            ✔ Set up model for Transactions @done(19-08-18 22:49)
-            ☐ Implement routes for Transactions
-        
+            ☐ Backend
+                ✔ Set up model for Transactions @done(19-08-18 22:49)
+                ✔ Implement routes for Transactions @done(19-08-24 22:31)
+            ☐ Frontend
+                ☐ Implement a Transactions Component showing transcations made
+                
+                
         - Integrate Client
             ✔ Set up a clean client directory @done(19-08-18 22:49)
             ✔ Set up scripts @done(19-08-18 22:49)

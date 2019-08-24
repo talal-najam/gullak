@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute';
 import Logout from '../auth/Logout';
 import SingleItem from '../../components/items/SingleItem';
 import CreateItem from '../../components/items/CreateItem';
+import Transactions from '../../components/transactions/Transactions'
 
 const Routes = () => {
     return (
@@ -21,6 +22,7 @@ const Routes = () => {
                 <PrivateRoute exact path='/dashboard' component={Dashboard} />
                 <PrivateRoute exact path='/myitems/:id' component={SingleItem} />
                 <PrivateRoute exact path='/create-item' component={CreateItem} />
+                <PrivateRoute exact path='/transactions' component={Transactions} />
                 { /*<Route exact path='/profiles' component={Profiles} />
                 <Route exact path='/profile/:id' component={Profile} />
                 <PrivateRoute exact path='/create-profile' component={CreateProfile} />

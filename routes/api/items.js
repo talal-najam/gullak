@@ -34,7 +34,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), async (req, r
 
 
 // @route 	POST api/items/:itemid
-// @desc  	Create a new Item
+// @desc  	Delete an Item permanently
 // @access 	Private
 router.delete('/:itemid', passport.authenticate('jwt', { session: false }), async (req, res) => {
     const { itemid } = req.params

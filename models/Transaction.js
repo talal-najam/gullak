@@ -10,13 +10,17 @@ transactionSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Item'
     },
-    amount: {
-        type: String,
-        required: true
-    },
     category: {
         type: String,
-        required: true
+        require: true,
+    },
+    spentFor: {
+        type: String,
+        require: true,
+    },
+    amount: {
+        type: String,
+        require: true
     },
     date: {
         type: String,

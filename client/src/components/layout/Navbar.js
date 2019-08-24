@@ -45,8 +45,12 @@ const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
 
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                        {/* TODO: Nice interactive Dashboard */}
                         <li className="nav-item">
-                            <Link className="nav-link" to="/dashboard">Dashboard <span className="sr-only">(current)</span></Link>
+                            <Link className="nav-link" to="/dashboard">Items <span className="sr-only">(current)</span></Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/transactions">Transactions</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/about">About</Link>
