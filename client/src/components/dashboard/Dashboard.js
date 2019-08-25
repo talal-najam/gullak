@@ -26,9 +26,6 @@ const Dashboard = ({ getItems, item: { loading, items } }) => {
                 </div>
             </div>
         )
-
-
-
     } else {
         output = loading ? (<h1>Loading...</h1>) : (<h3>Your Item list is empty :(</h3 >)
     }

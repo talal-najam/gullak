@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 // Todo add a CreateTransaction functionality and connect it with Redux
 
@@ -32,7 +33,7 @@ const TransactionForm = props => {
 
                     <form className='form' onSubmit={e => onSubmit(e)}>
                         <div className='form-group row'>
-                            <div className="col-lg-2">
+                            <div className="col-lg-2 c-form-label"  >
                                 <label>Amount:</label>
                             </div>
                             <div className="col-lg-10">
@@ -47,8 +48,8 @@ const TransactionForm = props => {
                             </div>
                         </div>
                         <div className='form-group row'>
-                            <div className="col-lg-2">
-                                <label>category:</label>
+                            <div className="col-lg-2 c-form-label">
+                                <label>Category:</label>
                             </div>
                             <div className="col-lg-10">
                                 <select className="form-control" name="category" value={category} onChange={e => onChange(e)}>
@@ -60,7 +61,7 @@ const TransactionForm = props => {
                             </div>
                         </div>
                         <div className='form-group row'>
-                            <div className="col-lg-2">
+                            <div className="col-lg-2 c-form-label">
                                 <label>Details:</label>
                             </div>
                             <div className="col-lg-10">
@@ -90,4 +91,4 @@ TransactionForm.propTypes = {
 
 }
 
-export default TransactionForm
+export default connect(null, { addTransaction })(TransactionForm);
