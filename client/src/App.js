@@ -36,7 +36,6 @@ function App() {
             <Route exact path='/' component={Landing} />
             <Route component={Routes} />
           </Switch>
-          {/* <Footer /> */}
         </Fragment>
       </Router>
     </Provider>

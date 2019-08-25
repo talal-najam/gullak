@@ -36,7 +36,7 @@ const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
     );
 
     const authLinks = (
-        <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#362b01' }}>
+        <nav className="navbar navbar-expand-lg navbar-dark " style={{ backgroundColor: '#362b01' }}>
             <div className="container">
                 <Link className="navbar-brand" to="/">Gullak</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
