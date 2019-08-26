@@ -45,9 +45,11 @@ Checklist:
             ☐ Backend
                 ✔ Set up model for Transactions @done(19-08-18 22:49)
                 ✔ Implement routes for Transactions @done(19-08-24 22:31)
+                ☐ Test the new routes created for createTransaction and getTransactions
             ☐ Frontend
                 ☐ Implement a Transactions Component showing transcations made
-                
+                ☐ Test the new component, action and reducer created for createTransaction and getTransactions
+                ☐ Add a Array.map((transaction, index) => ...) to get the numbering of the transactionss
                 
         - Integrate Client
             ✔ Set up a clean client directory @done(19-08-18 22:49)
@@ -57,17 +59,19 @@ Checklist:
             ✔ Create Navigation Component @done(19-08-18 22:49)
             ✔ Create Register Page @done(19-08-18 22:49)
             ✔ Create Login Page @done(19-08-18 22:49)
-    
-    ☐ Containerization
-        ☐ Dokcerize Front-end - Dockerfile
-        ☐ Dockerize Back-end - Dockerfile
-        ☐ Ensure connection between front-end and back-end
-        ☐ Create docker-compose file
 
-    ☐ Infra/Terraform
-        ☐ Provision AWS Resources
-        ☐ Configure SGs and Instances
-        ☐ Deploy to Cloud
+    ☐ DevOps
+        ☐ Containerization
+            ☐ Dokcerize Front-end - Dockerfile
+            ☐ Dockerize Back-end - Dockerfile
+            ☐ Ensure connection between front-end and back-end
+            ☐ Ensure connection between backend and database
+            ☐ Create docker-compose file
+
+        ☐ Infra/Terraform
+            ☐ Provision AWS Resources
+            ☐ Configure SGs and Instances
+            ☐ Deploy to Cloud
 
 Bugs:
     ✔ Fix why dashboard items don't load up on initial login @done(19-08-17 01:05)

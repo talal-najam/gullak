@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { addTransaction } from '../../actions/transaction';
 
-// Todo add a CreateTransaction functionality and connect it with Redux
+// Todo add a CreateTransaction functionality and connect it with Redux 
 
-const TransactionForm = props => {
+const TransactionForm = ({ addTransaction }) => {
 
     const [formData, setFormData] = useState({
         amount: '',
-        category: '',
-        spentFor: ''
+        category: 'Daily Expense',
+        spentFor: 'Food/Nutrition'
     });
+
+    const { amount, category, spentFor } = formData;
 
     const onChange = e => {
         return setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -20,9 +23,9 @@ const TransactionForm = props => {
     const onSubmit = e => {
         e.preventDefault();
         console.log(formData);
+        addTransaction(amount, category, spentFor);
     }
 
-    const { amount, category, spentFor } = formData;
 
     return (
         <div className="row">
@@ -53,10 +56,10 @@ const TransactionForm = props => {
                             </div>
                             <div className="col-lg-10">
                                 <select className="form-control" name="category" value={category} onChange={e => onChange(e)}>
-                                    <option value="daily_expense">Daily Expense</option>
-                                    <option value="lent">Lent/Borrowed</option>
-                                    <option value="lost">Lost</option>
-                                    <option value="others">Others</option>
+                                    <option value="Daily Expense">Daily Expense</option>
+                                    <option value="Lent/Borrowed">Lent/Borrowed</option>
+                                    <option value="Lost">Lost</option>
+                                    <option value="Others">Others</option>
                                 </select>
                             </div>
                         </div>
@@ -66,12 +69,12 @@ const TransactionForm = props => {
                             </div>
                             <div className="col-lg-10">
                                 <select className="form-control" name="spentFor" value={spentFor} onChange={e => onChange(e)}>
-                                    <option value="food">Food/Nutrition</option>
-                                    <option value="transport">Transport</option>
-                                    <option value="transport">Household</option>
-                                    <option value="transport">Luxury</option>
-                                    <option value="utilities">Utilities/Rent</option>
-                                    <option value="others">Others</option>
+                                    <option value="Food/Nutrition">Food/Nutrition</option>
+                                    <option value="Transport">Transport</option>
+                                    <option value="Household">Household</option>
+                                    <option value="Luxury">Luxury</option>
+                                    <option value="Utilities/Rent">Utilities/Rental</option>
+                                    <option value="Others">Others</option>
                                 </select>
                             </div>
                         </div>
@@ -81,6 +84,7 @@ const TransactionForm = props => {
                             />
                         </div>
                     </form>
+                    <hr />
                 </div>
             </div>
         </div>

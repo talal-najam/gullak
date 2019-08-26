@@ -72,6 +72,25 @@ router.post('/create', passport.authenticate('jwt', { session: false }), (req, r
 })
 
 
+// @route 	POST api/transactions/:transactionid
+// @desc  	Delete a Transaction permanently
+// @access 	Private
+router.delete('/:transactionId', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    const { transactionId } = req.params
+    try {
+        const transaction = await Transaction.findById(transactionId)
+        if (transaction) {
+            await transaction.remove();
+            res.json({ msg: 'Item successfully deleted' })
+        } else {
+            res.status(404).json({ msg: 'Item not found' })
+        }
+    } catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+})
+
+
 // POST     /api/transactions
 // DESC     Contribute a transaction towards an existing Item
 // ACCESS   Private
