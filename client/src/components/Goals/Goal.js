@@ -7,7 +7,7 @@ const Dashboard = () => {
 
     return (
         <Fragment>
-            <h1>This is a dashboard :(</h1>
+            <h1>This is a dashboard &#9785;</h1>
         </Fragment>
     );
 };

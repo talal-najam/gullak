@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteItem } from '../../actions/item';
+import Moment from 'react-moment';
 
 const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, date, deleteItem }) => {
-    const boolHandle = goalAchieved == true ? (<span>Yes</span>) : (<span>No</span>)
 
     return (
         <div className="card" style={{ 'width': '95%' }}>
@@ -15,9 +15,10 @@ const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, dat
                     <button onClick={() => deleteItem(id)} className="btn btn-outline-danger ml-auto mb-1">Delete</button>
                 </div>
                 <hr />
-                <h6 className="card-subtitle mb-2 text-muted">Price: MYR <span className="font-weight-bold">{price}</span></h6>
-                <h6 className="card-subtitle mb-2 text-muted">Savings: MYR <span className="font-weight-bold">{savings}</span></h6>
-                <h6 className="card-subtitle mb-2">Goal Achieved?: {parseInt(savings) > parseInt(price) ? (<span>Yes</span>) : (<span>No</span>)}</h6>
+                <h6 className="card-subtitle mb-2 text-muted">Price: RM <span className="font-weight-bold">{price}</span></h6>
+                <h6 className="card-subtitle mb-2 text-muted">Savings: RM <span className="font-weight-bold">{savings}</span></h6>
+                <h6 className="card-subtitle mb-2 text-muted">Goal Achieved?: {parseInt(savings) > parseInt(price) ? (<span>Yes</span>) : (<span>No</span>)}</h6>
+                <h6 className="card-subtitle mb-2 text-muted">Date Created: <Moment format="DD/MM/YY">{date}</Moment></h6>
                 <hr />
                 <div className="text-center">
 

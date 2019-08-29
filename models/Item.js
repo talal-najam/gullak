@@ -31,7 +31,7 @@ const itemSchema = new Schema({
     recommended_savings: {
         type: String
     },
-    date: { type: String, default: Date.now }
+    date: { type: Date, default: Date.now }
 });
 
 

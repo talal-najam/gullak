@@ -9,7 +9,7 @@ import { addTransaction } from '../../actions/transaction';
 const TransactionForm = ({ addTransaction }) => {
 
     const [formData, setFormData] = useState({
-        amount: '',
+        amount: '5',
         category: 'Daily Expense',
         spentFor: 'Food/Nutrition'
     });

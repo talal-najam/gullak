@@ -1,4 +1,4 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_SUCCESS, LOGIN_FAIL, USER_LOADED, AUTH_ERROR, SET_CURRENT_USER, LOGOUT_USER } from './types';
+import { REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_SUCCESS, LOGIN_FAIL, USER_LOADED, AUTH_ERROR, SET_CURRENT_USER, LOGOUT_USER, CLEAR_TRANSACTIONS, CLEAR_ITEMS } from './types';
 import { setAlert } from './alert';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
@@ -108,7 +108,7 @@ export const loginUser = (email, password, history) => dispatch => {
 export const logout = () => dispatch => {
     localStorage.removeItem('token');
     setAuthToken(false);
-    dispatch({
-        type: LOGOUT_USER
-    })
+    dispatch({ type: CLEAR_TRANSACTIONS })
+    dispatch({ type: CLEAR_ITEMS })
+    dispatch({ type: LOGOUT_USER })
 }

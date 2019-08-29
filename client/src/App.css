@@ -57,3 +57,15 @@ a.custom-card:hover {
 #cookies{
     padding-top: 16px !important;
 }
+
+.something {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.outline {
+    border: black solid 1px;
+}

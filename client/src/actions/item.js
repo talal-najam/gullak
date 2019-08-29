@@ -73,7 +73,7 @@ export const createItem = (name, price, url, savings, history) => async dispatch
             payload: res.data
         })
         dispatch(setAlert(`Item "${res.data.name}" successfully created`, 'success'));
-        history.push('/');
+        history.push('/items');
     } catch (err) {
         return dispatch(setAlert(err.response.data, "danger"));
     }

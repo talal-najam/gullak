@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getItem, addSaving } from '../../actions/item'
 import { Link } from 'react-router-dom'
+import Moment from 'react-moment'
 
 const SingleItem = ({ getItem, addSaving, item: { loading, item }, match }) => {
 
@@ -25,7 +26,7 @@ const SingleItem = ({ getItem, addSaving, item: { loading, item }, match }) => {
 
 
     if (item == null) {
-        output = loading ? (<h1>Loading...</h1>) : <h3>No Item Found on this Link :(</h3>
+        output = loading ? (<h1>Loading...</h1>) : <h3>No Item Found on this Link &#9785;</h3>
     } else {
         output = loading ? (<h1>Loading...</h1>) : (
             <div className="row">
@@ -41,7 +42,7 @@ const SingleItem = ({ getItem, addSaving, item: { loading, item }, match }) => {
                                 <h3 className="text-centre">Item details</h3>
                                 <p>Name: {item.name}</p>
                                 <p>Price: RM {item.price}</p>
-                                <p>Date Added: {item.date}</p>
+                                <p>Date Added: <Moment format="DD/MM/YY">{item.date}</Moment></p>
                             </div>
 
                             {/* Second Column */}

@@ -39,6 +39,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 items: [],
+                item: null,
                 loading: false
             }
         case ADD_SAVINGS:

@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getTransactions, deleteTransaction } from '../../actions/transaction';
+import Moment from 'react-moment';
 
 const TransactionHistory = ({ getTransactions, deleteTransaction, transaction: { loading, transactions } }) => {
 
     useEffect(() => {
-        getTransactions();
+        // getTransactions();
     }, [getTransactions]);
 
     console.log('Grabbing transactions array from state', transactions)
@@ -20,9 +21,10 @@ const TransactionHistory = ({ getTransactions, deleteTransaction, transaction: {
         transactionsTable = (transactions.map((transaction, index) => (
             <tr>
                 <th scope="row">{index + 1}</th>
-                <td>{transaction.amount}</td>
+                <td>RM {transaction.amount}</td>
                 <td>{transaction.category}</td>
                 <td>{transaction.spentFor}</td>
+                <td><Moment format="DD/MM/YY" date={transaction.date} /></td>
                 <td><button className="btn btn-danger btn-sm" onClick={() => { deleteTransaction(transaction._id) }}>&#10005;</button></td>
             </tr>
         )));
@@ -39,6 +41,7 @@ const TransactionHistory = ({ getTransactions, deleteTransaction, transaction: {
                             <th scope="col">Amount</th>
                             <th scope="col">Category</th>
                             <th scope="col">Details</th>
+                            <th scope="col">Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,7 +51,11 @@ const TransactionHistory = ({ getTransactions, deleteTransaction, transaction: {
             </div>
         )
     } else {
-        output = loading ? (<h1>Loading...</h1>) : (<h3 className="text-center mt-3 pt-3">No Recorded Transactions :(</h3 >)
+        output = loading ? (<h1>Loading...</h1>) : (
+            <div className="something">
+                <h3 className="text-center">No Recorded Transactions &#9785;</h3 >
+            </div>
+        )
     }
 
 

@@ -78,3 +78,8 @@ Bugs:
     ☐ Fix user state is not not preserved and loaded when page is refreshed'
     ☐ Replace the frontend UI framework from Bootstrap to Materialize CSS
     ☐ Fix the Footer component to make sure it comes at the end of the page
+    ☐ Fix the state persisting even after logging out - need reducers for CLEAR_ITEMS, CLEAR_PROFILE
+
+Suggestions:
+    ☐ Implement express-validator for error handling
+    ☐ Look into lodash for error handling and utilities

@@ -9,6 +9,7 @@ import Logout from '../auth/Logout';
 import SingleItem from '../../components/items/SingleItem';
 import CreateItem from '../../components/items/CreateItem';
 import Transactions from '../../components/transactions/Transactions'
+import RealDashboard from '../dashboard/RealDashboard';
 
 const Routes = () => {
     return (
@@ -19,7 +20,8 @@ const Routes = () => {
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/about' component={About} />
                 <Route exact path='/logout' component={Logout} />
-                <PrivateRoute exact path='/dashboard' component={Dashboard} />
+                <PrivateRoute exact path='/dashboard' component={RealDashboard} />
+                <PrivateRoute exact path='/items' component={Dashboard} />
                 <PrivateRoute exact path='/myitems/:id' component={SingleItem} />
                 <PrivateRoute exact path='/create-item' component={CreateItem} />
                 <PrivateRoute exact path='/transactions' component={Transactions} />
