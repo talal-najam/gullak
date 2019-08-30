@@ -23,10 +23,10 @@ const Login = ({ loginUser, history }) => {
     };
 
     return (
-        <div className="row">
+        <div className="row auth">
             <div className="col-lg-6 mx-auto">
                 <div className="mt-3 vh-center">
-                    <h1 className='large text-center'>Login</h1>
+                    <h1 className='large text-center mb-4'>Login</h1>
                     <p className='lead text-center'>
                         <i className='fas fa-user' /> Sign In Now
             </p>

@@ -31,7 +31,7 @@ const Register = ({ setAlert, register, history }) => {
     };
 
     return (
-        <div className="row">
+        <div className="row auth">
             <div className="col-lg-6 mx-auto">
                 <div className="mt-3">
                     <h1 className='large text-center'>Sign Up</h1>

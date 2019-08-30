@@ -10,16 +10,13 @@ const TransactionHistory = ({ getTransactions, deleteTransaction, transaction: {
         // getTransactions();
     }, [getTransactions]);
 
-    console.log('Grabbing transactions array from state', transactions)
-    console.log('Grabbing loading from state', loading)
-
     let output;
     let transactionsTable;
 
     output = (transactions.map(transaction => <h1>{transaction.amount}</h1>))
     if (transactions.length > 0) {
         transactionsTable = (transactions.map((transaction, index) => (
-            <tr>
+            <tr key={index}>
                 <th scope="row">{index + 1}</th>
                 <td>RM {transaction.amount}</td>
                 <td>{transaction.category}</td>
@@ -31,7 +28,7 @@ const TransactionHistory = ({ getTransactions, deleteTransaction, transaction: {
         output = loading ? (<h1>Loading...</h1>) : (
             <div>
                 <div className="mt-3" id="cookies">
-                    <h3 className='large text-center'>Transaction History</h3>
+                    <h3 className='text-center'>Transaction History</h3>
                 </div>
                 <hr />
                 <table className="table table-striped table-dark">

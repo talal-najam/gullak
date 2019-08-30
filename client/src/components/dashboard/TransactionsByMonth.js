@@ -5,12 +5,11 @@ import { getItems } from '../../actions/item';
 import { getTransactions } from '../../actions/transaction';
 
 
-const TransactionsByMonth = ({ item: { items }, transaction: { transactions }, getItems, getTransactions }) => {
+const TransactionsByMonth = ({ transaction: { transactions, loading }, getTransactions }) => {
 
     useEffect(() => {
-        getItems();
         getTransactions();
-    }, [getItems, getTransactions])
+    }, [getTransactions])
 
 
     const getMonthlyTransactions = transactions => {
@@ -42,28 +41,27 @@ const TransactionsByMonth = ({ item: { items }, transaction: { transactions }, g
         return output;
     }
 
-    const itemList = items.map(item => (<li key={item._id}>{item.name}</li>))
     let mTrans = getMonthlyTransactions(transactions).slice(0, 3);
-    let somemoreoutput = mTrans.map(transaction => (<p>{transaction[0]}: {transaction[1]}</p>))
+
+    let somemoreoutput;
+
+    if (mTrans[0][1] == 0 && !loading) {
+        somemoreoutput = (<h3>Stingy little nigga</h3>)
+    } else {
+        somemoreoutput = mTrans.map((transaction, index) => (<p style={{ padding: '0.3rem' }} key={transaction[0]}>{index + 1}. {transaction[0]}: {transaction[1]}</p>))
+    }
 
     return (
         <div>
-            <div className="row">
-                <div className="col-lg-6 col-md-12 col-sm-12">
-                    <h2>Money spent on categories</h2>
-                    <ul>
-                        {itemList}
-                    </ul>
-                </div>
+            <div className="mt-2">
+                <h3>Top 3 Monthly Breakdown</h3>
                 <hr />
-                <div className="col-lg-6 col-md-12 col-sm-12">
-                    <h2>Top 3 categories for this month</h2>
-                    <ul>
+                <div style={{ padding: '1rem' }}>
+                    <ul >
                         {somemoreoutput}
                     </ul>
                 </div>
             </div>
-
         </div>
     )
 }
@@ -71,13 +69,12 @@ const TransactionsByMonth = ({ item: { items }, transaction: { transactions }, g
 
 
 TransactionsByMonth.propTypes = {
-    item: PropTypes.object.isRequired,
-    getItems: PropTypes.func.isRequired,
+    transaction: PropTypes.object.isRequired,
+    getTransactions: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
-    item: state.item,
     transaction: state.transaction
 })
 
-export default connect(mapStateToProps, { getItems, getTransactions })(TransactionsByMonth)
+export default connect(mapStateToProps, { getTransactions })(TransactionsByMonth)

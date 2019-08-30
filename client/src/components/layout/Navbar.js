@@ -8,7 +8,7 @@ const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
     const guestLinks = (
         <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#362b01' }}>
             <div className="container">
-                <Link className="navbar-brand" to="/">Gullak</Link>
+                <Link className="navbar-brand" id="title" to="/">Gullak</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -38,7 +38,7 @@ const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
     const authLinks = (
         <nav className="navbar navbar-expand-lg navbar-dark " style={{ backgroundColor: '#362b01' }}>
             <div className="container">
-                <Link className="navbar-brand" to="/">Gullak</Link>
+                <Link className="navbar-brand" id="title" to="/">Gullak</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

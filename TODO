@@ -83,3 +83,4 @@ Bugs:
 Suggestions:
     ☐ Implement express-validator for error handling
     ☐ Look into lodash for error handling and utilities
+    ☐ Add pagination to the transaction history
