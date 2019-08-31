@@ -7,6 +7,9 @@ import Moment from 'react-moment';
 
 const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, date, deleteItem }) => {
 
+    let progress = (savings / price) * 100;
+    progress = progress.toFixed(2);
+
     return (
         <div className="card" style={{ 'width': '95%' }}>
             <div className="card-body">
@@ -19,6 +22,11 @@ const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, dat
                 <h6 className="card-subtitle mb-2 text-muted">Savings: RM <span className="font-weight-bold">{savings}</span></h6>
                 <h6 className="card-subtitle mb-2 text-muted">Goal Achieved?: {parseInt(savings) > parseInt(price) ? (<span>Yes</span>) : (<span>No</span>)}</h6>
                 <h6 className="card-subtitle mb-2 text-muted">Date Created: <Moment format="DD/MM/YY">{date}</Moment></h6>
+                <hr />
+                <div className="progress mb-3" style={{ height: '1.3rem' }}>
+                    <h6 className="" style={{ width: '100%', position: 'absolute', textAlign: 'center', left: '0.4em' }}>Progress: {progress}%</h6>
+                    <div className="progress-bar" role="progressbar" style={{ width: `${progress}%` }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
                 <hr />
                 <div className="text-center">
 

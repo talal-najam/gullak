@@ -5,7 +5,7 @@ import { getItem, addSaving } from '../../actions/item'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
 
-const SingleItem = ({ getItem, addSaving, item: { loading, item }, match }) => {
+const SingleItem = ({ getItem, addSaving, item: { loading, item }, match, history }) => {
 
     const [savings, addSavings] = useState({
         amount: ""
@@ -69,7 +69,7 @@ const SingleItem = ({ getItem, addSaving, item: { loading, item }, match }) => {
                                         onChange={e => onChange(e)}
                                     />
                                     <div className="text-center mt-3">
-                                        <button onClick={() => { addSaving(item._id, amount) }} className='mybuttons btn btn-primary '
+                                        <button onClick={() => { addSaving(item._id, amount, history) }} className='mybuttons btn btn-primary '
                                             style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }}
                                         >Submit</button>
                                     </div>

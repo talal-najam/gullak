@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
 
     const guestLinks = (
-        <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#362b01' }}>
+        <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#362b01', zIndex: '1' }}>
             <div className="container">
                 <Link className="navbar-brand" id="title" to="/">Gullak</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">

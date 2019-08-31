@@ -3,18 +3,19 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getTransactions, deleteTransaction } from '../../actions/transaction';
 import Moment from 'react-moment';
+import Spinner from '../spinner/Spinner'
 
 const TransactionHistory = ({ getTransactions, deleteTransaction, transaction: { loading, transactions } }) => {
 
     useEffect(() => {
-        // getTransactions();
+        getTransactions();
     }, [getTransactions]);
 
     let output;
     let transactionsTable;
 
     output = (transactions.map(transaction => <h1>{transaction.amount}</h1>))
-    if (transactions.length > 0) {
+    if (transactions.length > 0 && !loading) {
         transactionsTable = (transactions.map((transaction, index) => (
             <tr key={index}>
                 <th scope="row">{index + 1}</th>
@@ -25,13 +26,10 @@ const TransactionHistory = ({ getTransactions, deleteTransaction, transaction: {
                 <td><button className="btn btn-danger btn-sm" onClick={() => { deleteTransaction(transaction._id) }}>&#10005;</button></td>
             </tr>
         )));
-        output = loading ? (<h1>Loading...</h1>) : (
-            <div>
-                <div className="mt-3" id="cookies">
-                    <h3 className='text-center'>Transaction History</h3>
-                </div>
-                <hr />
-                <table className="table table-striped table-dark">
+        output = loading ? (<div className="something">
+            <Spinner />
+        </div>) : (
+                <table className="table table-striped ">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -45,58 +43,28 @@ const TransactionHistory = ({ getTransactions, deleteTransaction, transaction: {
                         {transactionsTable}
                     </tbody>
                 </table>
-            </div>
-        )
+            )
     } else {
-        output = loading ? (<h1>Loading...</h1>) : (
+        output = loading ? (
             <div className="something">
-                <h3 className="text-center">No Recorded Transactions &#9785;</h3 >
+                <Spinner />
             </div>
-        )
+        ) : (
+                <div className="something">
+                    <h3 className="text-center">No Recorded Transactions &#9785;</h3 >
+                </div>
+            )
     }
 
 
     return (
         <div>
+            <div className="mt-3" id="cookies">
+                <h3 className='text-center'>Transaction History</h3>
+            </div>
+            <hr />
             {output}
         </div>
-
-        // <div>
-        //     <div className="mt-3" id="cookies">
-        //         <h3 className='large text-center'>Transaction History</h3>
-        //     </div>
-        //     <hr />
-        //     <table className="table table-striped table-dark">
-        //         <thead>
-        //             <tr>
-        //                 <th scope="col">#</th>
-        //                 <th scope="col">Amount</th>
-        //                 <th scope="col">Category</th>
-        //                 <th scope="col">Details</th>
-        //             </tr>
-        //         </thead>
-        //         <tbody>
-        //             <tr>
-        //                 <th scope="row">1</th>
-        //                 <td>Mark</td>
-        //                 <td>Otto</td>
-        //                 <td>@mdo</td>
-        //             </tr>
-        //             <tr>
-        //                 <th scope="row">2</th>
-        //                 <td>Jacob</td>
-        //                 <td>Thornton</td>
-        //                 <td>@fat</td>
-        //             </tr>
-        //             <tr>
-        //                 <th scope="row">3</th>
-        //                 <td>Larry</td>
-        //                 <td>the Bird</td>
-        //                 <td>@twitter</td>
-        //             </tr>
-        //         </tbody>
-        //     </table>
-        // </div>
     )
 }
 

@@ -5,17 +5,18 @@ import { Link } from 'react-router-dom'
 import Item from '../items/Item'
 import { getItems } from '../../actions/item';
 import { setAlert } from '../../actions/alert';
+import Spinner from '../spinner/Spinner';
 
 const Dashboard = ({ getItems, item: { loading, items } }) => {
     let output;
     let listItems;
 
-    // useEffect(() => {
-    //     getItems();
-    // }, [getItems]);
+    useEffect(() => {
+        getItems();
+    }, [getItems]);
 
 
-    if (items.length > 0) {
+    if (items.length > 0 && !loading) {
         listItems = (items.map(item => <Item key={item._id} savings={item.savings} id={item._id} name={item.name} price={item.price} url={item.url} goalAchieved={item.goalAchieved} goalPercentage={item.goalPercentage} date={item.date} />));
         output = loading ? (<h1>Loading...</h1>) : (
             <div>
@@ -27,7 +28,7 @@ const Dashboard = ({ getItems, item: { loading, items } }) => {
             </div>
         )
     } else {
-        output = loading ? (<h1>Loading...</h1>) : (
+        output = loading ? (<Spinner />) : (
             <div className="something">
                 <div className="text-center">
                     <h3>Your Item list is empty &#9785;   <Link to="/create-item" className="btn btn-primary btn-sm ml-3" id="create-button">Create an Item</Link></h3 >

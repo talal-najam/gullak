@@ -7,7 +7,9 @@
 h1, h2, h3, h4, h5, h6, p {
     color: 'ffffff' !important;
 }
-
+h3 {
+    font-size: 1.3rem;
+}
 .auth{
     height: 75vh;
     display: flex;
@@ -22,7 +24,7 @@ h1, h2, h3, h4, h5, h6, p {
   }
 
 body{
-    background: #fffae3;
+    background: #fffeee;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -32,7 +34,9 @@ body{
 }
 
 .jumbotron {
-    height: 70vh !important;
+    height: 80vh !important;
+    margin-bottom: 0;
+    padding-top: 10%;
 }
 
 .about {
@@ -99,7 +103,7 @@ a.custom-card:hover {
 
 .something {
     width: 100%;
-    height: 80vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center
@@ -113,6 +117,7 @@ a.custom-card:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
+    padding-top: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -127,6 +132,7 @@ img {
 
 .custom-card img {
     height: 350px;
+    border: solid 1px black;
 }
 
 .custom-card > div {
@@ -140,6 +146,25 @@ img {
   .animation-section{
       margin: 0;
       padding: 0;
+      background: #fffef7;
+  }
+
+.spinner-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+
+}
+
+  .no-item-container{
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center
   }
 
   @media(max-width:600px) {

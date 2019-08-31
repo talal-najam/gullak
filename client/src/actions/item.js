@@ -80,7 +80,7 @@ export const createItem = (name, price, url, savings, history) => async dispatch
 }
 
 
-export const addSaving = (id, amount) => async dispatch => {
+export const addSaving = (id, amount, history) => async dispatch => {
     const token = localStorage.getItem('token');
 
     const config = {
@@ -100,7 +100,8 @@ export const addSaving = (id, amount) => async dispatch => {
             type: ADD_SAVINGS,
             payload: res.data
         })
-        return dispatch(setAlert(`Added ${amount} to savings for ${res.data.name}. Current savings = ${res.data.savings}`, "success"));
+        dispatch(setAlert(`Added ${amount} to savings for ${res.data.name}. Current savings = ${res.data.savings}`, "success"));
+        history.push('/items')
     } catch (err) {
         return dispatch(setAlert(err.response.data, "danger"));
     }

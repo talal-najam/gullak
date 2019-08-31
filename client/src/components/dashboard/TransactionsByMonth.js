@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { getItems } from '../../actions/item';
 import { getTransactions } from '../../actions/transaction';
+import Spinner from '../spinner/Spinner';
 
 
 const TransactionsByMonth = ({ transaction: { transactions, loading }, getTransactions }) => {
@@ -46,23 +47,33 @@ const TransactionsByMonth = ({ transaction: { transactions, loading }, getTransa
     let somemoreoutput;
 
     if (mTrans[0][1] == 0 && !loading) {
-        somemoreoutput = (<h3>Stingy little nigga</h3>)
+        somemoreoutput = (
+            <div className="no-item-container">
+                <h3>No Recorded Transactions &#9785;</h3>
+            </div>
+        )
     } else {
-        somemoreoutput = mTrans.map((transaction, index) => (<p style={{ padding: '0.3rem' }} key={transaction[0]}>{index + 1}. {transaction[0]}: {transaction[1]}</p>))
+        somemoreoutput = loading ? (
+            <div className="no-item-container">
+                <Spinner />
+            </div>
+        ) : (
+                <ul>
+                    {mTrans.map((transaction, index) => (<p style={{ padding: '0.3rem' }} key={transaction[0]}>{index + 1}. {transaction[0]}: RM {transaction[1]}</p>))}
+                </ul>
+            )
     }
 
     return (
         <div>
             <div className="mt-2">
-                <h3>Top 3 Monthly Breakdown</h3>
+                <h3 className="text-center">Monthly Breakdown</h3>
                 <hr />
                 <div style={{ padding: '1rem' }}>
-                    <ul >
-                        {somemoreoutput}
-                    </ul>
+                    {somemoreoutput}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

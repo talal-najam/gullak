@@ -15,8 +15,8 @@ Checklist:
                 ✔ Create Register Successfully using Redux and React @done(19-08-04 02:11)
                 ✔ Create Login Successfully using Redux and React @done(19-08-04 03:20)
                 ✔ Create Logout functionality for user @done(19-08-04 04:07)
-                ☐ Create private routes
-                ☐ Need to fix the cluster hell of front end dashboard component
+                ✔ Create private routes @done(19-08-31 11:06)
+                ✔ Need to fix the cluster hell of front end dashboard component @done(19-08-31 11:06)
 
         - Item
             ☐ Backend
@@ -32,12 +32,12 @@ Checklist:
             ☐ Frontend
                 ✔ Create a dashboard to load all items of the logged in User @done(19-08-17 22:33)
                 ✔ Create a Items component to view all the Items in a grid list @done(19-08-17 22:34)
-                ☐ Create a Goal component to view the individual Goal card with all the information
-                ☐ Need a Clear Items action and reducer
+                ✔ Create a Goal component to view the individual Goal card with all the information @done(19-08-31 11:06)
+                ✔ Need a Clear Items action and reducer @done(19-08-31 11:06)
                 ✔ Add action and reducer to add to savings button @done(19-08-18 22:47)
-                ☐ Work on the form to add/create new items
-                ☐ Set up logic so that create items now link is shown when no items are created by the user
-                ☐ Implement delete action and reducer
+                ✔ Work on the form to add/create new items @done(19-08-31 11:06)
+                ✔ Set up logic so that create items now link is shown when no items are created by the user @done(19-08-31 11:06)
+                ✔ Implement delete action and reducer @done(19-08-31 11:06)
                 ☐ Optional: Add a card layout editing in Real Time as you fill in the Create Item form
                 ☐ Optional: Add a progress bar calculating the savings and target amount percentage
 
@@ -84,3 +84,8 @@ Suggestions:
     ☐ Implement express-validator for error handling
     ☐ Look into lodash for error handling and utilities
     ☐ Add pagination to the transaction history
+    ☐ Fix Error Handling
+    ☐ Implement a Loading Spinner gif instead of Text
+    ☐ Convert all in-line styling to css file
+    ☐ Set up User profile, Salary, Salary date and deduct all the transactions from Salary
+    ☐ Instead of Category, add notes to remember why you spent money and on what
