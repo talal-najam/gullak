@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getItems } from '../../actions/item';
 import { getTransactions } from '../../actions/transaction';
 import Spinner from '../spinner/Spinner';
+import { getMonthName } from '../../utils/getMonthName';
 
 
 const TransactionsByMonth = ({ transaction: { transactions, loading }, getTransactions }) => {
@@ -45,11 +46,11 @@ const TransactionsByMonth = ({ transaction: { transactions, loading }, getTransa
     let mTrans = getMonthlyTransactions(transactions).slice(0, 3);
 
     let somemoreoutput;
-
+    console.log('mTrans is ', mTrans)
     if (mTrans[0][1] == 0 && !loading) {
         somemoreoutput = (
             <div className="no-item-container">
-                <h3>No Recorded Transactions &#9785;</h3>
+                <h3>You have not made any Transactions this month &#9785;</h3>
             </div>
         )
     } else {
@@ -67,7 +68,7 @@ const TransactionsByMonth = ({ transaction: { transactions, loading }, getTransa
     return (
         <div>
             <div className="mt-2">
-                <h3 className="text-center">Monthly Breakdown</h3>
+                <h3 className="text-center">Monthly Breakdown - {getMonthName()}</h3>
                 <hr />
                 <div style={{ padding: '1rem' }}>
                     {somemoreoutput}
