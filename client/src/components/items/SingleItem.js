@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getItem, addSaving } from '../../actions/item'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
+import { getCurrencyFormat } from '../../utils/getCurrencyFormat';
 
 const SingleItem = ({ getItem, addSaving, item: { loading, item }, match, history }) => {
 
@@ -41,15 +42,15 @@ const SingleItem = ({ getItem, addSaving, item: { loading, item }, match, histor
                             <div className="col-lg-5 col-md-4 col-sm-12 mx-auto">
                                 <h3 className="text-centre">Item details</h3>
                                 <p>Name: {item.name}</p>
-                                <p>Price: RM {item.price}</p>
+                                <p>Price: RM {getCurrencyFormat(item.price)}</p>
                                 <p>Date Added: <Moment format="DD/MM/YY">{item.date}</Moment></p>
                             </div>
 
                             {/* Second Column */}
                             <div className="col-lg-5 mx-auto col-md-4 mx-auto col-sm-12 ">
                                 <h3 className="text-centre">Financial details</h3>
-                                <p>Current Savings: {item.savings}</p>
-                                <p>Goal Achieved?: {parseInt(item.savings) > parseInt(item.price) ? (<span>Yes</span>) : (<span>No</span>)}</p>
+                                <p>Current Savings: {getCurrencyFormat(item.savings)}</p>
+                                <p>Goal Achieved?: {parseFloat(item.savings) > parseFloat(item.price) ? (<span>Yes</span>) : (<span>No</span>)}</p>
                                 {/* <p>Goal Achieved?: {item.goalAchieved ? (<span>Yes</span>) : (<span>No</span>)}</p> */}
                                 <p>Product page: <a target="_blank" href={item.url}>{item.name}</a></p>
                             </div>
@@ -67,6 +68,7 @@ const SingleItem = ({ getItem, addSaving, item: { loading, item }, match, histor
                                         name='amount'
                                         value={amount}
                                         onChange={e => onChange(e)}
+                                        required
                                     />
                                     <div className="text-center mt-3">
                                         <button onClick={() => { addSaving(item._id, amount, history) }} className='mybuttons btn btn-primary '

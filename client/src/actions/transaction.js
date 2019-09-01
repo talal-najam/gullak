@@ -2,6 +2,7 @@ import axios from 'axios';
 import { GET_TRANSACTIONS, CREATE_TRANSACTION, DELETE_TRANSACTION } from './types';
 import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken';
+import { getCurrencyFormat } from '../utils/getCurrencyFormat';
 
 // get Current User's all transactions
 export const getTransactions = () => async dispatch => {
@@ -45,7 +46,7 @@ export const addTransaction = (amount, category, spentFor) => async dispatch => 
             type: CREATE_TRANSACTION,
             payload: res.data
         })
-        dispatch(setAlert(`Transaction for amount "${res.data.amount}" added.`, 'success'))
+        dispatch(setAlert(`Transaction for amount "${getCurrencyFormat(res.data.amount)}" added.`, 'success'))
     } catch (err) {
         if (err) {
             return dispatch(setAlert(err.response.data, 'danger'))

@@ -2,6 +2,8 @@ import axios from 'axios';
 import { GET_ITEMS, ITEM_ERROR, GET_ITEM, ADD_SAVINGS, DELETE_ITEM, CREATE_ITEM } from './types';
 import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken';
+import { getCurrencyFormat } from '../utils/getCurrencyFormat';
+
 
 
 export const getItems = () => dispatch => {
@@ -100,7 +102,7 @@ export const addSaving = (id, amount, history) => async dispatch => {
             type: ADD_SAVINGS,
             payload: res.data
         })
-        dispatch(setAlert(`Added ${amount} to savings for ${res.data.name}. Current savings = ${res.data.savings}`, "success"));
+        dispatch(setAlert(`Added ${getCurrencyFormat(amount)} to savings for ${res.data.name}. Current savings = ${getCurrencyFormat(res.data.savings)}`, "success"));
         history.push('/items')
     } catch (err) {
         return dispatch(setAlert(err.response.data, "danger"));

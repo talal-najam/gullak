@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
-import { getItems } from '../../actions/item';
 import { getTransactions } from '../../actions/transaction';
 import Spinner from '../spinner/Spinner';
 import { getMonthName } from '../../utils/getMonthName';
+import { getCurrencyFormat } from '../../utils/getCurrencyFormat';
 
 
 const TransactionsByMonth = ({ transaction: { transactions, loading }, getTransactions }) => {
@@ -60,8 +60,11 @@ const TransactionsByMonth = ({ transaction: { transactions, loading }, getTransa
             </div>
         ) : (
                 <ul>
-                    {mTrans.map((transaction, index) => (<p style={{ padding: '0.3rem' }} key={transaction[0]}>{index + 1}. {transaction[0]}: RM {transaction[1]}</p>))}
-                </ul>
+                    {mTrans.map((transaction, index) => (
+                        <p style={{ padding: '1rem 0rem', margin: 0 }} key={transaction[0]}>{index + 1}. {transaction[0]}: RM {getCurrencyFormat(transaction[1])}</p>
+                    ))
+                    }
+                </ul >
             )
     }
 

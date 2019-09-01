@@ -44,6 +44,8 @@ const CreateItem = ({ createItem, history }) => {
                                 name='name'
                                 value={name}
                                 onChange={e => onChange(e)}
+                                autofocus="true"
+                                required
                             />
                         </div>
                         <div className='form-group'>
@@ -54,6 +56,7 @@ const CreateItem = ({ createItem, history }) => {
                                 name='price'
                                 value={price}
                                 onChange={e => onChange(e)}
+                                required
                             />
                         </div>
                         <div className='form-group'>

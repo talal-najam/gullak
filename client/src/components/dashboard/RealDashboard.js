@@ -16,6 +16,10 @@ const RealDashboard = props => {
                 <div className="col-lg-6 col-md-6 col-sm-12 pt-4">
                     <TransactionsByMonth />
                 </div>
+
+                <div className="col-12">
+                    <hr />
+                </div>
             </div>
 
             <div className="row" >

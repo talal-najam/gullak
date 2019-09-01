@@ -31,7 +31,7 @@ const TopItems = ({ item: { items, loading }, getItems }) => {
                         </div>
                     </div>
                     <div className="col-2">
-                        <Link to={`/myitems/${item._id}`} className="btn btn-primary btn-sm" style={{ position: 'absolute', right: '10px', width: '4rem' }}>Edit</Link>
+                        <Link to={`/myitems/${item._id}`} className="btn btn-primary btn-sm" style={{ position: 'absolute', right: '10px', padding: '0', marginTop: '-2px', width: '4rem' }}>Edit</Link>
                     </div>
                 </div>
             </div >)

@@ -47,6 +47,8 @@ const TransactionForm = ({ addTransaction }) => {
                                     name='amount'
                                     value={amount}
                                     onChange={e => onChange(e)}
+                                    autofocus="true"
+                                    required
                                 />
                             </div>
                         </div>
@@ -55,7 +57,7 @@ const TransactionForm = ({ addTransaction }) => {
                                 <label>Category:</label>
                             </div>
                             <div className="col-lg-10">
-                                <select className="form-control" name="category" value={category} onChange={e => onChange(e)}>
+                                <select className="form-control" required name="category" value={category} onChange={e => onChange(e)}>
                                     <option value="Daily Expense">Daily Expense</option>
                                     <option value="Lent/Borrowed">Lent/Borrowed</option>
                                     <option value="Lost">Lost</option>
@@ -68,7 +70,7 @@ const TransactionForm = ({ addTransaction }) => {
                                 <label>Details:</label>
                             </div>
                             <div className="col-lg-10">
-                                <select className="form-control" name="spentFor" value={spentFor} onChange={e => onChange(e)}>
+                                <select className="form-control" required name="spentFor" value={spentFor} onChange={e => onChange(e)}>
                                     <option value="Food/Nutrition">Food/Nutrition</option>
                                     <option value="Transport">Transport</option>
                                     <option value="Household">Household</option>

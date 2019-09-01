@@ -5,6 +5,7 @@ import { getTransactions, deleteTransaction } from '../../actions/transaction';
 import Moment from 'react-moment';
 import Spinner from '../spinner/Spinner';
 import Pagination from './Pagination';
+import { getCurrencyFormat } from '../../utils/getCurrencyFormat';
 
 const TransactionHistory = ({ getTransactions, deleteTransaction, transaction: { loading, transactions } }) => {
 
@@ -25,8 +26,6 @@ const TransactionHistory = ({ getTransactions, deleteTransaction, transaction: {
     // Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
-
-
     let output;
     let transactionsTable;
 
@@ -35,7 +34,7 @@ const TransactionHistory = ({ getTransactions, deleteTransaction, transaction: {
         transactionsTable = (currentPosts.map((transaction, index) => (
             <tr key={index}>
                 {/* <th scope="row">{index + 1}</th> */}
-                <td>RM {transaction.amount}</td>
+                <td>RM {getCurrencyFormat(transaction.amount)}</td>
                 <td>{transaction.category}</td>
                 <td>{transaction.spentFor}</td>
                 <td><Moment format="DD/MM/YY" date={transaction.date} /></td>
