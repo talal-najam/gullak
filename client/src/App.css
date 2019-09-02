@@ -19,6 +19,11 @@ h3 {
     align-items: center
 }
 
+.dashboard{
+    position: relative;
+  height: 100vh;
+}
+
 .auth{
     height: 75vh;
     display: flex;
@@ -180,4 +185,16 @@ img {
     .custom-card {
       display: block;
     }
+
+    .items{
+        display: block;
+        margin: 1rem;
+        padding: 1rem;
+        overflow: hidden
+    }
+
+    .mybuttons {
+        width: 100px !important;
+    }
+
   }
