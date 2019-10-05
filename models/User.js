@@ -22,6 +22,10 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    income: {
+        type: String,
+        default: "0"
+    },
     is_tutorial_completed: {
         type: String,
         default: "no",

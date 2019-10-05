@@ -9,14 +9,17 @@ Checklist:
                 ✔ Set up route for User Login with JWT authorization @done(19-08-04 01:55)
                 ✔ Set up User Models for User @done(19-08-04 01:55)
                 ✘ Will need to find a way to capture user images @cancelled(19-08-18 14:05)
-                ✔ Add income/salary @done(19-08-04 16:40)
+                ☐ Add income/salary
                 ✔ Remove the bcrypt token signing from the registesr function @done(19-08-04 01:59)
+                ☐ Add status on how the user is doing financially at a point in time
             ☐ Frontend
                 ✔ Create Register Successfully using Redux and React @done(19-08-04 02:11)
                 ✔ Create Login Successfully using Redux and React @done(19-08-04 03:20)
                 ✔ Create Logout functionality for user @done(19-08-04 04:07)
                 ✔ Create private routes @done(19-08-31 11:06)
                 ✔ Need to fix the cluster hell of front end dashboard component @done(19-08-31 11:06)
+                ☐ Add a tutorial window for user to add income which will be used to do all deductions
+                ☐ Add status on how the user is doing financially at a point in time
 
         - Item
             ☐ Backend
@@ -69,8 +72,8 @@ Checklist:
             ☐ Create docker-compose file
 
         ☐ Infra/Terraform
-            ☐ Provision AWS Resources
-            ☐ Configure SGs and Instances
+            ☐ Provision DigitalOcean Resources
+            ✘ Configure SGs and Instances @cancelled(19-10-05 16:07)
             ✔ Deploy to Cloud @done(19-09-05 21:23)
 
 Bugs:
