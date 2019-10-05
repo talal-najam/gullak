@@ -96,6 +96,21 @@ router.post('/login', (req, res) => {
         })
 });
 
+// @route 	POST api/users/current
+// @desc  	Set the user income value to true
+// @access 	Private
+router.post('/', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    try {
+        const { is_tutorial_completed } = req.body;
+        let user = await User.findById(req.user.id);
+        if (user) user.is_tutorial_completed = is_tutorial_completed
+        user.save()
+        return res.json(user)
+    } catch (err) {
+        res.status(500).send('Server Error');
+    }
+})
+
 
 // @route 	GET api/users/current
 // @desc  	Return the current user

@@ -22,6 +22,10 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    is_tutorial_completed: {
+        type: String,
+        default: "no",
+    }
 })
 
 module.exports = User = mongoose.model('User', UserSchema);
