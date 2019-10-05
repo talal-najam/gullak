@@ -71,7 +71,7 @@ Checklist:
         ☐ Infra/Terraform
             ☐ Provision AWS Resources
             ☐ Configure SGs and Instances
-            ☐ Deploy to Cloud
+            ✔ Deploy to Cloud @done(19-09-05 21:23)
 
 Bugs:
     ✔ Fix why dashboard items don't load up on initial login @done(19-08-17 01:05)
@@ -80,12 +80,13 @@ Bugs:
     ☐ Fix the Footer component to make sure it comes at the end of the page
     ☐ Fix the state persisting even after logging out - need reducers for CLEAR_ITEMS, CLEAR_PROFILE
 
-Suggestions:
+Additional Features:
     ☐ Implement express-validator for error handling
     ☐ Look into lodash for error handling and utilities
-    ☐ Add pagination to the transaction history
+    ✔ Add pagination to the transaction history @done(19-09-08 17:11)
     ☐ Fix Error Handling
-    ☐ Implement a Loading Spinner gif instead of Text
+    ✔ Implement a Loading Spinner gif instead of Text @done(19-09-08 17:11)
     ☐ Convert all in-line styling to css file
     ☐ Set up User profile, Salary, Salary date and deduct all the transactions from Salary
     ☐ Instead of Category, add notes to remember why you spent money and on what
+    ☐ Show me how much I spent today
