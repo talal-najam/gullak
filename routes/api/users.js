@@ -102,7 +102,7 @@ router.post('/income', passport.authenticate('jwt', { session: false }), async (
     try {
         const { income, is_tutorial_completed } = req.body;
         let user = await User.findById(req.user.id);
-
+        ``
         if (user) {
             user.is_tutorial_completed = is_tutorial_completed;
             user.income = income;
