@@ -2,11 +2,9 @@
 =========
 
 ## Overview
------------
 __Gullak__ is an Expense Tracking and Financial Goal Setting app built using the MERN stack. Drop a star if you like it. 
 
 ## Tech Stack
--------------
 - REST API: NodeJS and Express. 
 - Frontend: ReactJS and Redux for state management.
 - UI Library: Bootstrap 4
@@ -16,7 +14,6 @@ __Gullak__ is an Expense Tracking and Financial Goal Setting app built using the
 The live version of __Gullak__ can be checked out at https://gullak.tk
 
 ## Quick Start
---------------
 * Download and Install NodeJS from https://nodejs.org/en/download/
 * Clone the repository `git clone git@github.com:mistat44/gullak.git` and `cd gullak`
 * Install backend dependencies `npm install`
@@ -24,6 +21,5 @@ The live version of __Gullak__ can be checked out at https://gullak.tk
 * Kick off dev environment `npm run dev`
 
 ## Notes
---------
 * The API runs on port 5000 by default
 * If you want to contribute, pull requests are welcomed
