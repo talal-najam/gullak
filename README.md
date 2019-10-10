@@ -1,5 +1,4 @@
-# gullak 
-=========
+# Gullak 
 
 ## Overview
 __Gullak__ is an Expense Tracking and Financial Goal Setting app built using the MERN stack. Drop a star if you like it. 
