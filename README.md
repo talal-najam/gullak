@@ -1,5 +1,7 @@
 # Gullak 
 
+![](https://github.com/mistat44/gullak/blob/master/client/src/components/layout/images/read%20me.png)
+
 ## Overview
 [__Gullak__](https://gullak.tk) is an Expense Tracking and Financial Goal Setting app built using the MERN stack. Drop a star if you like it. 
 
