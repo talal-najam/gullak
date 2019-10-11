@@ -16,7 +16,7 @@ The live version of __Gullak__ can be visited at https://gullak.tk
 
 ## Quick Start
 * Download and Install NodeJS from https://nodejs.org/en/download/
-* Clone the repository `git clone git@github.com:mistat44/gullak.git`
+* Clone the repository `git clone git@github.com:mistat44/gullak.git` and `cd gullak`
 * Install backend dependencies `npm install`
 * Install frontend dependencies `npm install --prefix client`
 * Kick off dev environment `npm run dev`
