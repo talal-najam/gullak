@@ -131,13 +131,11 @@ router.post('/reset_password', passport.authenticate('jwt', { session: false }),
         console.log("email:", reset_email);
         console.log("password:", reset_password)
 
-        // Need to generate an email code and send it to the email
-        // When the code is received, verify it against database and then ask them to reset password
         const mailOptions = {
-            from: 'talalnajam98@email.com', // sender address
-            to: 'talalnajam98@gmail.com', // list of receivers
-            subject: 'Gullak Inc. - Reset Your Password', // Subject line
-            html: 'Please click on the following link to reset your password. LINK'// plain text body
+            from: reset_email,
+            to: reset_email, // TODO: Change this email to users email email
+            subject: 'Gullak - Reset Your Password',
+            html: 'Please click on the following link to reset your password. LINK'
         };
 
         transporter.sendMail(mailOptions, (err, info) => {
