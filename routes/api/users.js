@@ -7,6 +7,13 @@ const config = require('config');
 const secretOrKey = config.get('secretOrKey');
 const passport = require('passport');
 const nodemailer = require("nodemailer");
+const crypto = require('crypto');
+const async = require("async");
+
+// Defining constants
+const reset_email = config.get('reset_email');
+const reset_password = config.get('reset_password');
+const reset_email_service = config.get("reset_email_service");
 
 
 // @route 	GET api/users/register
@@ -70,7 +77,6 @@ router.post('/login', (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
-                        // User Matched
                         // Create JWT Payload
                         const payload = {
                             id: user.id,
@@ -109,55 +115,122 @@ router.get('/current', passport.authenticate('jwt', { session: false }), async (
 });
 
 // @route 	GET api/users/current
-// @desc  	Return the current user
-// @access 	Private
-router.post('/reset_password', passport.authenticate('jwt', { session: false }), async (req, res) => {
+// @desc  	Reset the user password
+// @access 	Public
+router.post('/reset_password', async (req, res) => {
     try {
-        // generate a password that's valid for one click somehow? and then 
         const { email } = req.body;
-        const reset_email = config.get('reset_email');
-        const reset_password = config.get('reset_password');
+        let user = await User.findOne({ email });
+        if (user) {
+            async.waterfall([
+                function (done) {
+                    crypto.randomBytes(20, function (err, buf) {
+                        var token = buf.toString('hex');
+                        done(err, token);
+                    });
+                },
+                function (token, done) {
+                    user.resetPasswordToken = token;
+                    user.resetPasswordTokenExpires = Date.now() + 3600000; // 1 hour
 
-        let testAccount = await nodemailer.createTestAccount();
+                    user.save(function (err) {
+                        done(err, token, user);
+                    });
+                },
+                function (token) {
+                    subject = 'Gullak - Reset Your Password'
+                    html = 'You are receiving this because you have requested the reset of the password for your account.\n\n' +
+                        'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+                        'http://' + req.headers.host + '/reset_password/' + token + '\n\n' +
+                        'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+                    sendMail(email, subject, html);
+                    return res.send(`An email with the instructions to reset the password has been sent to ${email}!`)
+                }
+            ], function (err) {
+                if (err) return next(err);
+                res.redirect('/forgot');
+            });
+        } else {
+            return res.status(404).send('There is no account registered with this email address');
+        }
+    } catch (err) {
+        res.status(501).send('Server Error While Sending Email');
+    }
+})
 
-        let transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                user: reset_email,
-                pass: reset_password
-            }
+function sendMail(to, subject, html) {
+    let transporter = nodemailer.createTransport({
+        service: reset_email_service,
+        auth: {
+            user: reset_email,
+            pass: reset_password
+        }
+    });
+
+    const mailOptions = { from: reset_email, to, subject, html };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+        if (err)
+            console.log(err)
+        else
+            console.log(info);
+    })
+}
+
+router.get('/reset_password/:token', async (req, res) => {
+    try {
+        let user = await User.findOne({
+            resetPasswordToken: req.params.token,
+            resetPasswordTokenExpires: { $gt: Date.now() }
         });
 
-        console.log("email:", reset_email);
-        console.log("password:", reset_password)
-
-        // Need to generate an email code and send it to the email
-        // When the code is received, verify it against database and then ask them to reset password
-        const mailOptions = {
-            from: 'talalnajam98@email.com', // sender address
-            to: 'talalnajam98@gmail.com', // list of receivers
-            subject: 'Gullak Inc. - Reset Your Password', // Subject line
-            html: 'Please click on the following link to reset your password. LINK'// plain text body
-        };
-
-        transporter.sendMail(mailOptions, (err, info) => {
-            if (err)
-                console.log(err)
-            else
-                console.log(info);
-        })
-
-        console.log('Message sent: %s', info.messageId);
-        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-        // Preview only available when sending through an Ethereal account
-        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-        return res.send(`Email sent!`)
+        if (user) {
+            user.isResetPasswordTokenValidated = true;
+            await user.save()
+            return res.status(200).send('Token Validated')
+        } else {
+            return res.status(401).send("Invalid reset password token");
+        }
     } catch (err) {
-        print("Here")
-        console.log(err.data)
-        res.status(501).send('Server Error');
+        console.log(err)
+        return res.status(500).send("Server Error");
+    }
+});
+
+router.post('/reset_password/:token', async (req, res) => {
+    try {
+        const { password } = req.body;
+
+        let user = await User.findOne({
+            resetPasswordToken: req.params.token,
+            resetPasswordTokenExpires: { $gt: Date.now() }
+        });
+
+        if (user && user.isResetPasswordTokenValidated) {
+            // Hash password
+            bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.hash(password, salt, (err, hash) => {
+                    if (err) res.send(err);
+                    user.password = hash;
+                    user.isResetPasswordTokenValidated = false
+
+                    user
+                        .save()
+                        .then(user => {
+                            const subject = "Gullak - Your Password Has Been Reset"
+                            const html = `This is a confirmation email that the password for your account ${user.email} has been reset.`
+                            sendMail(user.email, subject, html)
+                            res.send("Password Reset Successfully")
+                        })
+                        .catch(err => console.log(err));
+                })
+            })
+        } else {
+            return res.status(401).send("Token not yet validated");
+        }
+
+    } catch (err) {
+        return res.status(500).send("Server error happened while resetting password");
     }
 })
 
