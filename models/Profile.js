@@ -8,7 +8,7 @@ const ProfileSchema = new Schema({
     },
     income: {
         type: String,
-        require: true
+        required: true
     },
 
 })
