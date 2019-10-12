@@ -22,10 +22,10 @@ const Landing = ({ isAuthenticated }) => {
                     <hr className="my-4" />
                     <p className="text-center" >Track Expenses and Budget. Achieve Financial Goals. All In One Place.</p>
                     <p className="lead text-center">
-                        <Link className="mybuttons btn btn-primary btn-lg mt-4" style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '10rem' }} to="/register" role="button">
-                            Join Today!
+                        <Link className="mybuttons btn btn-primary btn-lg mt-4" style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }} to="/register" role="button">
+                            Register
                     </Link>
-                        <Link className="mybuttons btn btn-primary btn-lg mt-4 ml-4" style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '10rem' }} to="/login" role="button">
+                        <Link className="mybuttons btn btn-primary btn-lg mt-4 ml-4" style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }} to="/login" role="button">
                             Login
                     </Link>
                     </p>

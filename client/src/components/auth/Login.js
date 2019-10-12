@@ -24,8 +24,8 @@ const Login = ({ loginUser, history }) => {
 
     return (
         <div className="row auth">
-            <div className="col-lg-6 mx-auto">
-                <div className="mt-3 vh-center">
+            <div className="col-lg-6 mx-auto auth-box">
+                <div className="m-3 vh-center">
                     <h1 className='large text-center mb-4'>Login</h1>
                     <p className='lead text-center'>
                         <i className='fas fa-user' /> Sign In Now
@@ -55,9 +55,18 @@ const Login = ({ loginUser, history }) => {
                             style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }}
                         />
                     </form>
-                    <p className="mt-3">
-                        Don't have an account? <Link to='/register'>Sign Up</Link>
-                    </p>
+                    <div className="row">
+                        <div className="col-6">
+                            <p className="mt-3">
+                                Don't have an account? <Link className="ml-1" to='/register'>Sign Up</Link>
+                            </p>
+                        </div>
+                        <div className="col-6">
+                            <p className="mt-3 text-right">
+                                <Link to='/forgot_password' className="text-right">Forgot Password?</Link>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -10,6 +10,8 @@ import SingleItem from '../../components/items/SingleItem';
 import CreateItem from '../../components/items/CreateItem';
 import Transactions from '../../components/transactions/Transactions'
 import RealDashboard from '../dashboard/RealDashboard';
+import ForgotPassword from '../auth/ForgotPassword';
+import ResetPassword from '../auth/ResetPassword';
 
 const Routes = () => {
     return (
@@ -20,6 +22,8 @@ const Routes = () => {
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/about' component={About} />
                 <Route exact path='/logout' component={Logout} />
+                <Route exact path='/forgot_password' component={ForgotPassword} />
+                <Route exact path='/reset_password/:token' component={ResetPassword} />
                 <PrivateRoute exact path='/dashboard' component={RealDashboard} />
                 <PrivateRoute exact path='/items' component={Dashboard} />
                 <PrivateRoute exact path='/myitems/:id' component={SingleItem} />

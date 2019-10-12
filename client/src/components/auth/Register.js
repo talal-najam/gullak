@@ -32,7 +32,7 @@ const Register = ({ setAlert, register, history }) => {
 
     return (
         <div className="row auth">
-            <div className="col-lg-6 mx-auto">
+            <div className="col-lg-6 mt-3 mx-auto auth-box">
                 <div className="mt-3">
                     <h1 className='large text-center'>Sign Up</h1>
                     <p className='lead text-center'>

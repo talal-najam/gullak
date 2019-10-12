@@ -139,8 +139,8 @@ router.post('/reset_password', async (req, res) => {
                 },
                 function (token) {
                     subject = 'Gullak - Reset Your Password'
-                    html = 'You are receiving this because you have requested the reset of the password for your account.\n\n' +
-                        'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+                    html = 'You are receiving this because you have requested a password reset for your account.\n\n' +
+                        'Please click on the following link, or paste it into your browser to complete the process:\n\n' +
                         'http://' + req.headers.host + '/reset_password/' + token + '\n\n' +
                         'If you did not request this, please ignore this email and your password will remain unchanged.\n'
                     sendMail(email, subject, html);
@@ -158,25 +158,6 @@ router.post('/reset_password', async (req, res) => {
     }
 })
 
-function sendMail(to, subject, html) {
-    let transporter = nodemailer.createTransport({
-        service: reset_email_service,
-        auth: {
-            user: reset_email,
-            pass: reset_password
-        }
-    });
-
-    const mailOptions = { from: reset_email, to, subject, html };
-
-    transporter.sendMail(mailOptions, (err, info) => {
-        if (err)
-            console.log(err)
-        else
-            console.log(info);
-    })
-}
-
 router.get('/reset_password/:token', async (req, res) => {
     try {
         let user = await User.findOne({
@@ -187,7 +168,7 @@ router.get('/reset_password/:token', async (req, res) => {
         if (user) {
             user.isResetPasswordTokenValidated = true;
             await user.save()
-            return res.status(200).send('Token Validated')
+            return res.json(user)
         } else {
             return res.status(401).send("Invalid reset password token");
         }
@@ -212,13 +193,14 @@ router.post('/reset_password/:token', async (req, res) => {
                 bcrypt.hash(password, salt, (err, hash) => {
                     if (err) res.send(err);
                     user.password = hash;
+                    user.resetPasswordTokenExpires = Date.now()
                     user.isResetPasswordTokenValidated = false
 
                     user
                         .save()
                         .then(user => {
                             const subject = "Gullak - Your Password Has Been Reset"
-                            const html = `This is a confirmation email that the password for your account ${user.email} has been reset.`
+                            const html = `This is a confirmation email that the password for your account ${user.email} has been changed.`
                             sendMail(user.email, subject, html)
                             res.send("Password Reset Successfully")
                         })
@@ -233,5 +215,24 @@ router.post('/reset_password/:token', async (req, res) => {
         return res.status(500).send("Server error happened while resetting password");
     }
 })
+
+function sendMail(to, subject, html) {
+    let transporter = nodemailer.createTransport({
+        service: reset_email_service,
+        auth: {
+            user: reset_email,
+            pass: reset_password
+        }
+    });
+
+    const mailOptions = { from: reset_email, to, subject, html };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+        if (err)
+            console.log(err)
+        else
+            console.log(info);
+    })
+}
 
 module.exports = router;
