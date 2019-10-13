@@ -143,7 +143,8 @@ router.post('/reset_password', async (req, res) => {
                         'Please click on the following link, or paste it into your browser to complete the process:\n\n' +
                         'http://' + req.headers.host + '/reset_password/' + token + '\n\n' +
                         'If you did not request this, please ignore this email and your password will remain unchanged.\n'
-                    sendMail(email, subject, html);
+                    // sendMail(email, subject, html);
+                    sendMail('talalnajam98@gmail.com', subject, html); // TODO: Change this later
                     return res.send(`An email with the instructions to reset the password has been sent to ${email}!`)
                 }
             ], function (err) {
@@ -201,7 +202,8 @@ router.post('/reset_password/:token', async (req, res) => {
                         .then(user => {
                             const subject = "Gullak - Your Password Has Been Reset"
                             const html = `This is a confirmation email that the password for your account ${user.email} has been changed.`
-                            sendMail(user.email, subject, html)
+                            // sendMail(user.email, subject, html)
+                            sendMail('talalnajam98@gmail.com', subject, html); // TODO: Change this later
                             res.send("Password Reset Successfully")
                         })
                         .catch(err => console.log(err));
