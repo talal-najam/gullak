@@ -26,10 +26,10 @@ const Login = ({ loginUser, history }) => {
         <div className="row auth">
             <div className="col-lg-6 mx-auto auth-box">
                 <div className="m-3 vh-center">
-                    <h1 className='large text-center mb-4'>Login</h1>
-                    <p className='lead text-center'>
+                    <h1 className='large text-center mb-3'>Login</h1>
+                    <h3 className='lead text-center mb-3'>
                         <i className='fas fa-user' /> Sign In Now
-            </p>
+            </h3>
                     <form className='form text-center' onSubmit={e => onSubmit(e)}>
                         <div className='form-group'>
                             <input
@@ -52,7 +52,7 @@ const Login = ({ loginUser, history }) => {
                             />
                         </div>
                         <input type='submit' className='mybuttons btn btn-primary' value='Login'
-                            style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }}
+                            style={{ border: 'none', borderRadius: '0', width: '8rem' }}
                         />
                     </form>
                     <div className="row">

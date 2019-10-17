@@ -15,23 +15,23 @@ const Landing = ({ isAuthenticated }) => {
 
     return (
         <div >
-            <div className="jumbotron">
-                <div className="container" style={{ color: '#362b01' }}>
+            <div className="banner has-overlay">
+                <div className="container-fluid landing-main" >
                     <h1 className="display-4 text-center" id="landing-title">Gullak!</h1>
                     <p className="lead text-center">Your Ultimate Expense Tracker And Financial Goal Setting Tool</p>
                     <hr className="my-4" />
-                    <p className="text-center" >Track Expenses and Budget. Achieve Financial Goals. All In One Place.</p>
+                    <p className="text-center bottom-landing" >Track Expenses and Budget. Achieve Financial Goals. All In One Place.</p>
                     <p className="lead text-center">
-                        <Link className="mybuttons btn btn-primary btn-lg mt-4" style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }} to="/register" role="button">
+                        <Link className="mybuttons btn btn-primary mt-4" to="/register" role="button">
                             Register
                     </Link>
-                        <Link className="mybuttons btn btn-primary btn-lg mt-4 ml-4" style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }} to="/login" role="button">
+                        <Link className="mybuttons btn btn-primary  mt-4 ml-4" to="/login" role="button">
                             Login
                     </Link>
                     </p>
                 </div>
             </div>
-            <div className="animation-section">
+            {/* <div className="animation-section">
                 <div className="container">
                     <section className="custom-card">
                         <img src={imageOne} alt="" />
@@ -62,7 +62,7 @@ const Landing = ({ isAuthenticated }) => {
                         </div>
                     </section>
                 </div>
-            </div>
+            </div> */}
 
         </div>
     );

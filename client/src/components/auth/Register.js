@@ -32,12 +32,12 @@ const Register = ({ setAlert, register, history }) => {
 
     return (
         <div className="row auth">
-            <div className="col-lg-6 mt-3 mx-auto auth-box">
+            <div className="col-lg-6 mx-auto auth-box">
                 <div className="mt-3">
                     <h1 className='large text-center'>Sign Up</h1>
-                    <p className='lead text-center'>
+                    <h3 className='lead text-center'>
                         <i className='fas fa-user' /> Create Your Account And Join Us
-                   </p>
+                   </h3>
                     <form className='form text-center' onSubmit={e => onSubmit(e)}>
                         <div className='form-group'>
                             <input
@@ -84,7 +84,7 @@ const Register = ({ setAlert, register, history }) => {
                             />
                         </div>
                         <input type='submit' className='mybuttons btn btn-primary' value='Register'
-                            style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }}
+                            style={{ border: 'none', borderRadius: '0', width: '8rem' }}
                         />
                     </form>
                     <p className="mt-3">

@@ -44,7 +44,7 @@ const SingleItem = ({ getItem, addSaving, item: { loading, item }, match, histor
                             <div className="row">
 
                                 {/* First Column */}
-                                <div className="col-lg-5 col-md-4 col-sm-12 mx-auto">
+                                <div className="col-lg-5 col-sm-12 mx-auto">
                                     <h3 className="text-centre">Item details</h3>
                                     <p>Name: {item.name}</p>
                                     <p>Price: RM {getCurrencyFormat(item.price)}</p>
@@ -52,7 +52,7 @@ const SingleItem = ({ getItem, addSaving, item: { loading, item }, match, histor
                                 </div>
 
                                 {/* Second Column */}
-                                <div className="col-lg-5 mx-auto col-md-4 mx-auto col-sm-12 ">
+                                <div className="col-lg-5 col-sm-12 mx-auto">
                                     <h3 className="text-centre">Financial details</h3>
                                     <p>Current Savings: {getCurrencyFormat(item.savings)}</p>
                                     <p>Goal Achieved?: {parseFloat(item.savings) > parseFloat(item.price) ? (<span>Yes</span>) : (<span>No</span>)}</p>
@@ -77,7 +77,6 @@ const SingleItem = ({ getItem, addSaving, item: { loading, item }, match, histor
                                         />
                                         <div className="text-center mt-3">
                                             <button onClick={() => { addSaving(item._id, amount, history) }} className='mybuttons btn btn-primary '
-                                                style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }}
                                             >Submit</button>
                                         </div>
                                     </div>

@@ -4,13 +4,22 @@
     box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    color: 'ffffff' !important;
-}
+
 h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 
+p {
+    font-size: 14px;
+}
+
+.landing-main{
+     color: '#362b01'
+}
+
+.bottom-landing{
+    font-size: 1rem;
+}
 .pagination-container  {
     width: 100%;
     display: flex;
@@ -21,11 +30,10 @@ h3 {
 
 .dashboard{
     position: relative;
-  height: 100vh;
 }
 
 .auth{
-    height: 80vh;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,47 +46,109 @@ h3 {
     padding: 1rem;
     height: 70vh;
 }
-
-.navbar-nav > li{
-    padding-left:1.5rem;
-    padding-right:1.5rem;
-  }
-
-body{
-    background: #fffeee;
-    font-family: 'Roboto', sans-serif;
+.progress{
+    background: #dedede
+}
+.progress-bar{
+    background: #ffd369 !important;
 }
 
+.navbar-nav > li{
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+
+.nav-link{
+    padding-left:1.2rem;
+    padding-right:1.2rem;
+    color: #ddd !important;
+  }
+
+
+  .nav-link:hover{
+    color: #aaa !important;
+    transition: all ease-in-out 150ms;
+  }
+
+.navbar {
+    background: rgba(0,0,0,0.6) !important;
+}
+
+body{
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Poppins', sans-serif;
+    color: #222242;
+    /* background:	#eed1ff	 !important; */
+    height: 100%;
+    background-color: #FAACA8;
+    background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    /* background: #bfdbdf !important; */
+
+}
+
+.card {
+    background: #eee !important;
+}
+
+
 #landing-title{ 
-    font-family: 'Chilanka', cursive !important;
+    font-family: 'Biryani', sans-serif !important;
     font-size: 4rem;
 }
 
-.jumbotron {
-    height: 80vh !important;
+.banner {
     margin-bottom: 0;
     padding-top: 10%;
+
 }
 
+
+
 .about {
-    height: 80vh;
+    height: 91vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center
+    align-items: center;
 }
 
 #title {
-    font-family: 'Chilanka', cursive !important;
+    font-family: 'Biryani', sans-serif !important;
     padding-bottom: 0;
-    font-size: 1.6rem;
-    padding-right: 1rem;
-    text-shadow: 2px 2px 8px goldenrod;
+    font-size: 1.5rem;
+    color: #ddd;
+    padding-right: 15px;
+}
+
+a {
+}
+
+.mybuttons{
+    background-color: 	#470774 !important;
+    color:  #ddd !important;
+
+    /* background: #ce2e6c; */
+    border: none;
+    width: 8rem;
+    text-align: center !important;
+    border-radius: 0 !important;
 }
 
 .mybuttons:hover{
-    background-color: #bb9f22 !important;
-    color: black
+    background:#2e003b !important;
+
+    color: white
+}
+
+sec-button {
+    background: #e26241 !important;
 }
 
 #registerButton:hover {
@@ -109,7 +179,7 @@ a.custom-card:hover {
 
 .transaction-background {
     width: 100%;
-    height: 80vh;
+    height: 91vh;
     /* background-color: rgba(0,0,0, 0.1); */
     /* border: black solid 1px; */
 }
@@ -188,7 +258,7 @@ img {
       justify-content: center
   }
 
-  @media(max-width:600px) {
+  @media(max-width:768px) {
     .custom-card {
       display: block;
     }
@@ -203,5 +273,4 @@ img {
     .mybuttons {
         width: 100px !important;
     }
-
   }

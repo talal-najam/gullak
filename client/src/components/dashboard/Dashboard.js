@@ -20,7 +20,7 @@ const Dashboard = ({ getItems, item: { loading, items } }) => {
         listItems = (items.map(item => <Item key={item._id} savings={item.savings} id={item._id} name={item.name} price={item.price} url={item.url} goalAchieved={item.goalAchieved} goalPercentage={item.goalPercentage} date={item.date} />));
         output = loading ? (<h1>Loading...</h1>) : (
             <div className="mb-2">
-                <Link to="/create-item" className="btn btn-primary mt-3" id="create-button">Create Item</Link>
+                <Link to="/create-item" className="sec-button btn btn-primary mt-3" id="create-button">Create Item</Link>
                 <hr />
                 <div className="items">
                     {listItems}
