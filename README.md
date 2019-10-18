@@ -10,7 +10,7 @@
 - Frontend: ReactJS and Redux for state management.
 - UI Framework: Bootstrap 4
 - Database: MongoDB
-- Deployment: Ubuntu droplet on Digital Ocean. 
+- Production: Docker container on Ubuntu 18.04 - Digital Ocean 
 
 The live version of __Gullak__ can be visited at https://gullak.tk
 
