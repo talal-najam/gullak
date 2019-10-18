@@ -9,8 +9,8 @@
 - REST API: NodeJS and Express. 
 - Frontend: ReactJS and Redux for state management.
 - UI Framework: Bootstrap 4
-- Database: MongoDB.
-- Deployment: The application is hosted on an Ubuntu droplet on Digital Ocean. 
+- Database: MongoDB
+- Deployment: Ubuntu droplet on Digital Ocean. 
 
 The live version of __Gullak__ can be visited at https://gullak.tk
 
