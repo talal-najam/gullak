@@ -26,14 +26,14 @@ app.use('/api/transactions', require('./routes/api/transactions'));
 app.use('/api/profiles', require('./routes/api/profiles'));
 
 // Serve static assets in PRODUCTION
-if (process.env.NODE_ENV === 'production') {
+
     // Set static folder
     app.use(express.static('client/build'));
 
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     })
-}
+
 
 const PORT = 5000 || process.env.PORT;
 
