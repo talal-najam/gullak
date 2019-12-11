@@ -8,16 +8,16 @@ const itemSchema = new Schema({
     },
     name: {
         type: String,
-        require: true
+        required: true
     },
     price: {
         type: String,
-        require: true
+        required: true
     },
     url: String,
     goalAchieved: {
         type: Boolean,
-        require: true,
+        required: true,
         default: false
     },
     goalPercentage:

@@ -21,7 +21,7 @@ const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, dat
                             if (window.confirm('This Item will be permanently deleted. This action is irreversable. Please confirm.')) deleteItem(id);
                         }
                         }
-                        className="btn btn-outline-danger btn-sm ml-auto mb-1">Delete</button>
+                        className="btn btn-danger btn-sm ml-auto mb-1">Delete</button>
                 </div>
                 <hr />
                 <h6 className="card-subtitle mb-2 text-muted">Price: RM <span className="font-weight-bold">{getCurrencyFormat(price)}</span></h6>
@@ -36,8 +36,8 @@ const Item = ({ id, name, savings, price, url, goalAchieved, goalPercentage, dat
                 <hr />
                 <div className="text-center">
 
-                    {url && (<a href={url} target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary card-link mr-3">Visit Page</a>)}
-                    <Link to={`/myitems/${id}`} className="btn btn-primary ml-3">Modify Item</Link>
+                    {url && (<a href={url} target="_blank" rel="noopener noreferrer" className="mybuttons btn btn-primary card-link mr-3">Visit Page</a>)}
+                    <Link to={`/myitems/${id}`} className="mybuttons btn btn-primary ml-3">Modify Item</Link>
                 </div>
 
             </div>

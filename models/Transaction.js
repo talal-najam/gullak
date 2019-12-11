@@ -12,15 +12,15 @@ transactionSchema = new Schema({
     },
     category: {
         type: String,
-        require: true,
+        required: true,
     },
     spentFor: {
         type: String,
-        require: true,
+        required: true,
     },
     amount: {
         type: String,
-        require: true
+        required: true
     },
     date: {
         type: Date,

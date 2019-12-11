@@ -5,15 +5,15 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     name: {
         type: String,
-        require: true
+        required: true
     },
     email: {
         type: String,
-        require: true
+        required: true
     },
     password: {
         type: String,
-        require: true
+        required: true
     },
     avatar: {
         type: String,
@@ -28,8 +28,16 @@ const UserSchema = new Schema({
     },
     is_tutorial_completed: {
         type: String,
-        default: "no",
+        default: "no"
+    },
+    resetPasswordToken: String,
+    resetPasswordTokenExpires: Date,
+    isResetPasswordTokenValidated: {
+        type: Boolean,
+        default: false
+
     }
 })
 
-module.exports = User = mongoose.model('User', UserSchema);
+User = mongoose.model('User', UserSchema);
+module.exports = User;

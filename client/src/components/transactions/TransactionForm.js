@@ -82,7 +82,7 @@ const TransactionForm = ({ addTransaction }) => {
                         </div>
                         <div className="text-center">
                             <input type='submit' className='mybuttons btn btn-primary' value='Add'
-                                style={{ backgroundColor: '#362b01', border: 'none', borderRadius: '0', width: '8rem' }}
+                                style={{ border: 'none', borderRadius: '0', width: '8rem' }}
                             />
                         </div>
                     </form>

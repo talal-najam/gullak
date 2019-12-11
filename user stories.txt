@@ -1,5 +1,0 @@
-1. I want to set an item as my goal that I want to save money for
-2. I want to track how much I spend every day 
-3. I want to track how well I am doing in terms of saving up for that item
-4. I want to be able to know how much should I be saving to achieve this goal in how long
-5. I want to be able to see where I am spending and how much I am spending

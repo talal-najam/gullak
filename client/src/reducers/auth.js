@@ -1,4 +1,4 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL, LOGOUT_USER, LOGIN_SUCCESS, LOGIN_FAIL, USER_LOADED, AUTH_ERROR, SET_CURRENT_USER } from '../actions/types';
+import { REGISTER_SUCCESS, REGISTER_FAIL, LOGOUT_USER, VERIFY_TOKEN, VERIFY_TOKEN_FAILED, LOGIN_FAIL, USER_LOADED, AUTH_ERROR, RESET_PASSWORD } from '../actions/types';
 import isEmpty from '../validation/is-empty';
 const initialState = {
     token: localStorage.getItem('token'),
@@ -34,6 +34,23 @@ export default function (state = initialState, action) {
                 ...state,
                 token: null,
                 isAuthenticated: false,
+                loading: false
+            }
+        case VERIFY_TOKEN:
+            return {
+                ...state,
+                user: payload,
+                loading: false
+            }
+        case RESET_PASSWORD:
+            return {
+                ...state,
+                user: null,
+                loading: false
+            }
+        case VERIFY_TOKEN_FAILED:
+            return {
+                ...state,
                 loading: false
             }
         default:
