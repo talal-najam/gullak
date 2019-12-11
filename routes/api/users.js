@@ -10,16 +10,29 @@ const nodemailer = require("nodemailer");
 const crypto = require('crypto');
 const async = require("async");
 
-// Defining constants
+
+// Email reset config values
 const reset_email = config.get('reset_email');
 const reset_password = config.get('reset_password');
 const reset_email_service = config.get("reset_email_service");
 
 
+// @route 	GET api/users/current
+// @desc  	Return the current user
+// @access 	Private
+router.get('/current', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password');
+        res.json(user);
+    } catch (err) {
+        res.status(500).send('Server Error');
+    }
+});
+
+
 // @route 	GET api/users/register
 // @desc  	Register a new user
 // @access 	Public
-// TODO: Turn this method to async and add express validator - server side validation
 router.post('/register', async (req, res) => {
 
     // Check database if User already exists
@@ -57,10 +70,10 @@ router.post('/register', async (req, res) => {
     }
 });
 
+
 // @route 	GET api/users/login
 // @desc  	Login User / Returning JWT Token
 // @access 	Public
-// TODO: Turn this method to async and add express validator - server side validation
 router.post('/login', (req, res) => {
 
     const { email, password } = req.body;
@@ -102,20 +115,9 @@ router.post('/login', (req, res) => {
         })
 });
 
-// @route 	GET api/users/current
-// @desc  	Return the current user
-// @access 	Private
-router.get('/current', passport.authenticate('jwt', { session: false }), async (req, res) => {
-    try {
-        const user = await User.findById(req.user.id).select('-password');
-        res.json(user);
-    } catch (err) {
-        res.status(500).send('Server Error');
-    }
-});
 
 // @route 	GET api/users/current
-// @desc  	Reset the user password
+// @desc  	Generates a one-time use reset password token and emails to the user's account
 // @access 	Public
 router.post('/reset_password', async (req, res) => {
     try {
@@ -159,6 +161,10 @@ router.post('/reset_password', async (req, res) => {
     }
 })
 
+
+// @route 	GET api/users/reset_password/:token
+// @desc  	Validates the user token used for resetting the password
+// @access 	Public
 router.get('/reset_password/:token', async (req, res) => {
     try {
         let user = await User.findOne({
@@ -179,6 +185,10 @@ router.get('/reset_password/:token', async (req, res) => {
     }
 });
 
+
+// @route 	GET api/users/reset_password/:token
+// @desc  	Resets the password and sends a confirmation email to the user's email
+// @access 	Public
 router.post('/reset_password/:token', async (req, res) => {
     try {
         const { password } = req.body;
@@ -217,6 +227,7 @@ router.post('/reset_password/:token', async (req, res) => {
         return res.status(500).send("Server error happened while resetting password");
     }
 })
+
 
 function sendMail(to, subject, html) {
     let transporter = nodemailer.createTransport({

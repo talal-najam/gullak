@@ -16,9 +16,6 @@ router.get('/mytransactions', passport.authenticate('jwt', { session: false }), 
 })
 
 
-// DELETE   /api/transactions/:id
-// DESC     Delete a single Transactions
-// ACCESS   PRIVATE
 // @route 	POST api/items/:itemid
 // @desc  	Delete an Item permanently
 // @access 	Private
