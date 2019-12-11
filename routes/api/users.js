@@ -70,7 +70,6 @@ router.post('/register', async (req, res) => {
     }
 });
 
-
 // @route 	GET api/users/login
 // @desc  	Login User / Returning JWT Token
 // @access 	Public
@@ -115,6 +114,27 @@ router.post('/login', (req, res) => {
         })
 });
 
+// @route 	POST api/users/current
+// @desc  	Add income on signup
+// @access 	Private
+router.post('/income', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    try {
+        const { income, is_tutorial_completed } = req.body;
+        let user = await User.findById(req.user.id);
+
+        if (user) {
+            user.is_tutorial_completed = is_tutorial_completed;
+            user.income = income;
+
+            user.save()
+            return res.json(user)
+        } else {
+            return res.status(404).json({ 'error': 'User not found!' });
+        }
+    } catch (err) {
+        res.status(500).send('Server Error');
+    }
+})
 
 // @route 	GET api/users/current
 // @desc  	Generates a one-time use reset password token and emails to the user's account
