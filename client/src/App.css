@@ -109,15 +109,33 @@ body{
 
 }
 
+/* ABOUT */
 
-
-.about {
+/* .about {
     height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+} */
+
+.about-heading {
+    margin-top: 1.2rem;
+    font-family: 'Biryani', sans-serif !important;
 }
+
+.about-content {
+    font-size: 1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black
+}
+
+.app-feature-list > li {
+    margin-left: 2.5rem;
+    padding-left: 7px;
+}
+
+/* Landing */
 
 #title {
     font-family: 'Biryani', sans-serif !important;
