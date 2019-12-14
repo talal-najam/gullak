@@ -135,6 +135,10 @@ body{
     padding-left: 7px;
 }
 
+.app-content-body {
+    margin-bottom: 2.2rem;
+}
+
 /* Landing */
 
 #title {
