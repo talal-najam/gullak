@@ -11,13 +11,12 @@ const Landing = () => {
             <h5 className="app-content">Why should I use Gullak?</h5>
             <p className="about-content">If you are a student, professional or any individual for that matter, spending money recklessly and noticing it very late is something we all encounter at one point of our lives. This is the part where <b>Gullak</b> comes in to play, Gullak allows you to track all your information in one platform, while providing you the insides you need to make informed, smarted decisions. Moreover, all your data is confidential and only accessible to you. Following are some of the key features of using this application</p>
             <h5 className="app-content">Features:</h5>
-            <ul className="app-feature-list">
-                <li><b>Transaction History</b> is used to track and record all your spendings</li>
-                <li><b>Items</b> allows you to create a wish list of items and set your goals that you can contribute to</li>
-                <li><b>Dashboard</b> provides all the information you need to look at in one place. This includes your spending of the day/month/year, Transaction History,your current goals and the best part - a graph showing your spending habits</li>
-                <li><b>Breakdown</b> shows the different categories of spendings for the selected time period e.g. monthly, yearly etc.</li>
+            <ul className="app-feature-list about-content">
+                <li>Dashboard provides all the information you need to look at in one place. This includes your spending of the day/month/year, Transaction History,your current goals and the best part - a graph showing your spending habits</li>
+                <li>Items allows you to create a wish list of items and set your goals that you can contribute to</li>
+                <li>Breakdown shows the different categories of spendings for the selected time period e.g. monthly, yearly etc.</li>
+                <li>Transaction History is used to track and record all your spendings</li>
             </ul>
-
         </div>
     );
 };
