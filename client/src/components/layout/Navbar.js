@@ -1,13 +1,22 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import $ from 'jquery';
 
 const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
-
+    useEffect(() => {
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+          });
+    }, []);
+    
     const guestLinks = (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container">
+            <div className="container-fluid">
+                <button type="button" id="sidebarCollapse" className="menu-button">☰</button>
                 <Link className="navbar-brand" id="title" to="/">Gullak</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -37,7 +46,8 @@ const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
 
     const authLinks = (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container">
+            <div className="container-fluid">
+                <button type="button" id="sidebarCollapse" className="menu-button">☰</button>
                 <Link className="navbar-brand" id="title" to="/">Gullak</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

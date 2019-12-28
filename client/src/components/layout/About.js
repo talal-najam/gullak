@@ -4,7 +4,7 @@ const Landing = () => {
 
     return (
         <div className="about-heading">
-            <h1>Gullak</h1>
+            <h1>About</h1>
             <hr />
             <h5 className="app-content">Overview</h5>
             <p className="about-content app-content-body"><b>Gullak</b> - is an Expense Tracking and Financial Goal Setting application. Have you ever checked your account at the end of the money and ever wondered where you might be spending the most? Is it the new phone you are looking to buy but cannot save up for. Well Gullak is just the right platform to track and record your expenses and eventually, look at the trends of your spending habits. </p>

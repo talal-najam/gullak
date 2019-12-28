@@ -9,6 +9,7 @@ import Landing from './components/layout/Landing';
 import Routes from './components/routing/Routes';
 import Alert from './components/layout/Alert';
 import Footer from './components/layout/Footer';
+import Sidebar from './components/sidebar/Sidebar';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -30,12 +31,20 @@ function App() {
     <Provider store={store}>
       <Router>
         <Fragment>
-          <Navbar />
-          <Alert />
-          <Switch>
-            <Route exact path='/' component={Landing} />
-            <Route component={Routes} />
-          </Switch>
+          <div className="d-flex align-items-stretch">
+            <div id="sidebar">
+              <Sidebar />
+            </div>
+            <div id="content">
+              <Navbar />
+              <Alert />
+              <Switch>
+                <Route exact path='/' component={Landing} />
+                <Route component={Routes} />
+              </Switch>    
+            </div>  
+          </div>
+          
         </Fragment>
       </Router>
     </Provider>
