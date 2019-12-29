@@ -73,6 +73,8 @@ p {
 
 .navbar {
     background: rgba(0,0,0,0.6) !important;
+    height: 7vh !important;
+    min-height: 60px;
 }
 
 body{
@@ -148,9 +150,6 @@ body{
     color: #ddd;
     padding-right: 15px;
     margin-top: 0.4rem;
-}
-
-a {
 }
 
 .mybuttons{
@@ -307,7 +306,7 @@ img {
 }
 
 #sidebar.active {
-    margin-left: 0px;
+    margin-left: 0px; 
 }
 
 #sidebar {
@@ -351,4 +350,60 @@ img {
     #sidebar.active {
         margin-left: 0;
     }
+}
+
+/* Sidebar */
+
+.sidebar-branding-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7vh !important;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    min-height: 60px;
+
+}
+
+.sidebar-branding {
+    font-size: 1.5rem;
+    color: white;
+    font-family: 'Biryani', sans-serif !important;
+    text-decoration: none !important;
+    transition: all 100ms ease-in-out;
+}
+
+.sidebar-branding:hover {
+    color: #aaa;
+}
+
+.sidebar-item {
+    font-size: 1.2rem;
+    height: 100%;
+    width: 100%; 
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: none !important;
+}
+
+.sidebar-nav {
+    text-align: center;
+    height: 100%;
+    width: 100%; 
+    background: none;
+    border: none;
+    font-size: 1rem;
+    text-decoration: none !important;
+    margin: 0 !important;
+    color: #ddd;
+    transition: all 200ms ease-in-out;
+    padding: 0.4rem !important;
+}
+
+.sidebar-nav:hover, .sidebar-nav:focus {
+    text-decoration: none !important;
+    color: #aaa;
+    background-color: rgba(0,0,0,0.1);
 }
