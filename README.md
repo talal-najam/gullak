@@ -12,8 +12,6 @@ Gullak is an Expense Tracking and Financial Goal Setting app built using the MER
 - Database: MongoDB
 - Production: Docker container on Ubuntu 18.04 - Digital Ocean 
 
-The live version of __Gullak__ can be visited at https://gullak.tk
-
 ## Quick Start
 * Download and Install NodeJS from https://nodejs.org/en/download/
 * Clone the repository `git clone git@github.com:mistat44/gullak.git` and `cd gullak`
