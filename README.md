@@ -10,7 +10,7 @@ Gullak is an Expense Tracking and Financial Goal Setting app built using the MER
 - Frontend: ReactJS and Redux for state management.
 - UI Framework: Bootstrap 4
 - Database: MongoDB
-- Production: Docker container on Ubuntu 18.04 - Digital Ocean 
+- Production: Docker container on Ubuntu 18.04 - Digital Ocean [Not live currently]
 
 ## Quick Start
 * Download and Install NodeJS from https://nodejs.org/en/download/
