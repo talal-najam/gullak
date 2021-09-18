@@ -1,5 +1,0 @@
-language: node_js
-node_js: 
-  - 10.15.2
-cache: npm
-# life cycle builds. before_install:, install:, before_script:, script:, after_success:, after_failure:, after_script:, before_deploy:, deploy:, after_deploy: 
