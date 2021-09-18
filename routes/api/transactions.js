@@ -17,7 +17,7 @@ router.get('/mytransactions', passport.authenticate('jwt', { session: false }), 
 
 
 // @route 	POST api/items/:itemid
-// @desc  	Delete an Item permanently
+// @desc  	Delete a Transaction permanently
 // @access 	Private
 router.delete('/:transactionid', passport.authenticate('jwt', { session: false }), async (req, res) => {
     const { transactionid } = req.params
