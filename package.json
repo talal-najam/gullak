@@ -16,7 +16,7 @@
   "author": "Talal Najam",
   "license": "MIT",
   "dependencies": {
-    "async": "^3.1.0",
+    "async": "^3.2.2",
     "bcryptjs": "^2.4.3",
     "concurrently": "^4.1.1",
     "config": "^3.2.0",
